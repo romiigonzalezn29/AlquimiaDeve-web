@@ -1,0 +1,587 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Alquimiadev — Diseño + código para marcas que venden online</title>
+  <meta name="description" content="Diseño, UX y desarrollo para crear y profesionalizar tu tienda online en Tiendanube o Empretienda." />
+  <link rel="icon" type="image/svg+xml" href="logo.svg" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,700&family=Space+Grotesk:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- ============================================================
+       NAVEGACIÓN
+       ============================================================ -->
+  <header class="nav">
+    <div class="nav-inner">
+      <a href="#" class="nav-logo">
+        <span class="nav-logo-symbol">◈</span>
+        <span class="nav-logo-text">alquimia<em>deve</em></span>
+      </a>
+
+      <nav class="nav-links">
+        <a href="#sobre-mi">Sobre mí</a>
+        <a href="#servicios">Servicios</a>
+        <a href="#beneficios">Beneficios</a>
+        <a href="#contacto" class="nav-cta">Hablemos →</a>
+      </nav>
+
+      <button class="nav-toggle" id="navToggle" aria-label="Menú">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Menú mobile -->
+  <div class="nav-mobile" id="navMobile">
+    <a href="#sobre-mi">Sobre mí</a>
+    <a href="#servicios">Servicios</a>
+    <a href="#beneficios">Beneficios</a>
+    <a href="#contacto">Hablemos</a>
+  </div>
+
+
+  <!-- ============================================================
+       HERO
+       ============================================================ -->
+  <section class="hero">
+    <div class="hero-bg">
+      <div class="grid-bg"></div>
+      <div class="particles" id="particles"></div>
+
+      <svg class="alchemy-mark" viewBox="0 0 200 200" aria-hidden="true">
+        <circle cx="100" cy="100" r="80" fill="none" stroke="currentColor" stroke-width="1"/>
+        <circle cx="100" cy="100" r="60" fill="none" stroke="currentColor" stroke-width="0.5" stroke-dasharray="3 4"/>
+        <polygon points="100,30 170,140 30,140" fill="none" stroke="currentColor" stroke-width="1.5"/>
+        <circle cx="100" cy="100" r="10" fill="currentColor" opacity="0.6"/>
+      </svg>
+    </div>
+
+    <div class="container hero-inner">
+
+      <div class="hero-content">
+
+        <span class="badge">
+          <span class="badge-dot"></span>
+          disponible para nuevos proyectos
+        </span>
+
+        <p class="kicker">diseño · ux · código</p>
+
+        <h1 class="hero-title">
+          Diseño + código<br>
+          para marcas que<br>
+          <em>quieren vender online</em>
+        </h1>
+
+        <p class="hero-sub">
+          Diseño, configuración y desarrollo para crear una tienda online
+          que represente tu marca y haga más simple la experiencia de compra.
+          Trabajo con marcas que ya venden y quieren
+          profesionalizar su canal digital.
+        </p>
+
+        <div class="hero-ctas">
+          <a href="#beneficios" class="btn btn-primary">
+            Por qué elegirme →
+          </a>
+
+          <a href="#contacto" class="btn btn-secondary">
+            Hablemos
+          </a>
+        </div>
+
+      </div>
+
+      <div class="hero-code">
+        <div class="code-panel">
+
+          <div class="code-header">
+            <span></span>
+            <span></span>
+            <span></span>
+            <em>incantation.js</em>
+          </div>
+
+          <pre class="code-body"><code><span class="c-key">function</span> <span class="c-fn">transformar</span>(marca) {
+  <span class="c-key">const</span> tienda = marca.<span class="c-fn">diseñar</span>();
+  <span class="c-key">return</span> tienda ? <span class="c-str">"✨ online"</span> : <span class="c-str">"🐛 bug"</span>;
+}</code></pre>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       SOBRE MÍ
+       ============================================================ -->
+  <section class="section sobre-mi" id="sobre-mi">
+    <div class="container">
+
+      <div class="section-header">
+        <p class="kicker">alquimia + código</p>
+
+        <h2 class="section-title">
+          Soy desarrolladora y diseñadora.<br>
+          Combino <em>magia y lógica</em>.
+        </h2>
+      </div>
+
+      <div class="sobre-mi-grid">
+
+        <div class="sobre-mi-text">
+
+          <p>
+            Ayudo a pequeñas marcas de productos físicos a transformar
+            la forma en que venden online.
+          </p>
+
+          <p>
+            Combino <strong>diseño, UX y desarrollo</strong> para crear tiendas
+            que no solo se ven bien, sino que están pensadas para acompañar
+            cómo compra tu cliente.
+          </p>
+
+          <p>
+            Trabajo con Tiendanube y Empretienda, adaptando cada proyecto
+            a la identidad, los productos y las necesidades reales de cada marca.
+          </p>
+
+          <p>
+            No se trata solamente de elegir una plantilla.
+            Se trata de construir una experiencia que tenga sentido
+            para tu negocio.
+          </p>
+
+          <a href="#contacto" class="link-arrow">
+            Conocer más →
+          </a>
+
+        </div>
+
+        <div class="sobre-mi-stats">
+
+          <div class="stat">
+            <span class="stat-number">+2</span>
+            <span class="stat-label">plataformas con las que trabajo</span>
+          </div>
+
+          <div class="stat">
+            <span class="stat-number">15-20</span>
+            <span class="stat-label">días hábiles por proyecto</span>
+          </div>
+
+          <div class="stat">
+            <span class="stat-number">LATAM</span>
+            <span class="stat-label">marcas con las que puedo trabajar</span>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       SERVICIOS
+       ============================================================ -->
+  <section class="section servicios" id="servicios">
+    <div class="container">
+
+      <div class="section-header">
+        <p class="kicker">lo que hago</p>
+        <h2 class="section-title">Servicios</h2>
+      </div>
+
+      <div class="services-grid">
+
+        <article class="service-card">
+
+          <div class="service-icon">
+            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="24" cy="24" r="18"/>
+              <polygon points="24,10 38,34 10,34"/>
+            </svg>
+          </div>
+
+          <h3>Diseño + UX</h3>
+
+          <p>
+            Diseñamos la tienda pensando en cómo navega y compra tu cliente.
+            Organizamos la estructura, navegación, categorías y presentación
+            de los productos para que encontrar lo que busca sea simple y claro.
+          </p>
+
+        </article>
+
+
+        <article class="service-card">
+
+          <div class="service-icon">
+            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M 18 10 L 12 38 Q 12 44 18 44 L 30 44 Q 36 44 36 38 L 30 10"/>
+              <line x1="16" y1="10" x2="32" y2="10"/>
+              <line x1="15" y1="34" x2="33" y2="34"/>
+            </svg>
+          </div>
+
+          <h3>Configuración + desarrollo</h3>
+
+          <p>
+            Configuramos la plataforma, catálogo, variantes, medios de pago,
+            envíos y los elementos necesarios para poner tu tienda en funcionamiento.
+            Cuando el proyecto lo requiere, también incorporo soluciones de desarrollo
+            y personalización.
+          </p>
+
+        </article>
+
+
+        <article class="service-card">
+
+          <div class="service-icon">
+            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="10,24 20,34 38,14"/>
+              <circle cx="24" cy="24" r="20" opacity="0.3"/>
+            </svg>
+          </div>
+
+          <h3>Lanzamiento + autonomía</h3>
+
+          <p>
+            Antes de publicar, revisamos que todo funcione como debería.
+            Te entrego una tienda lista para empezar a trabajar y recursos
+            para que puedas gestionarla por tu cuenta después del lanzamiento.
+          </p>
+
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       BENEFICIOS
+       ============================================================ -->
+  <section class="section proyectos" id="beneficios">
+    <div class="container">
+
+      <div class="section-header">
+
+        <p class="kicker">el impacto real</p>
+
+        <h2 class="section-title">
+          Una tienda no es solo una web linda.
+        </h2>
+
+        <p class="section-sub">
+          Es una herramienta para ordenar tu forma de vender y hacer más simple
+          el camino entre <strong>“quiero esto”</strong> y <strong>“quiero comprarlo”</strong>.
+        </p>
+
+      </div>
+
+
+      <div class="projects-grid">
+
+        <article class="project-card">
+
+          <div class="project-info" style="padding: 2rem;">
+
+            <span class="project-tag">
+              Menos tareas repetitivas
+            </span>
+
+            <h3>
+              Más orden, menos mensajes
+            </h3>
+
+            <p>
+              Centralizá información que hoy quizás resolvés manualmente
+              por WhatsApp. Catálogo, precios, variantes, medios de pago
+              y opciones de envío pueden quedar organizados dentro de
+              un mismo espacio.
+            </p>
+
+          </div>
+
+        </article>
+
+
+        <article class="project-card">
+
+          <div class="project-info" style="padding: 2rem;">
+
+            <span class="project-tag">
+              Experiencia de usuario
+            </span>
+
+            <h3>
+              Una experiencia más clara
+            </h3>
+
+            <p>
+              Una buena tienda no debería hacer que tu cliente piense demasiado.
+              La estructura, navegación y presentación de tus productos pueden
+              ayudarlo a encontrar lo que busca y entender cómo comprar.
+            </p>
+
+          </div>
+
+        </article>
+
+
+        <article class="project-card">
+
+          <div class="project-info" style="padding: 2rem;">
+
+            <span class="project-tag">
+              Identidad + confianza
+            </span>
+
+            <h3>
+              Una marca más profesional
+            </h3>
+
+            <p>
+              Tu tienda también comunica quién sos. Una experiencia visual
+              coherente, información clara y un proceso de compra ordenado
+              ayudan a transmitir la identidad y el nivel de profesionalización
+              de tu marca.
+            </p>
+
+          </div>
+
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       PROCESO
+       ============================================================ -->
+  <section class="section proceso">
+
+    <div class="container">
+
+      <div class="section-header">
+
+        <p class="kicker">cómo trabajo</p>
+
+        <h2 class="section-title">
+          El proceso
+        </h2>
+
+      </div>
+
+
+      <div class="proceso-grid">
+
+        <div class="step">
+
+          <span class="step-number">
+            01
+          </span>
+
+          <h3>
+            Diagnóstico
+          </h3>
+
+          <p>
+            Entendemos tu negocio, tus productos y cómo vendés actualmente.
+          </p>
+
+        </div>
+
+
+        <div class="step">
+
+          <span class="step-number">
+            02
+          </span>
+
+          <h3>
+            Estructura
+          </h3>
+
+          <p>
+            Organizamos catálogo, categorías y recorrido de compra.
+          </p>
+
+        </div>
+
+
+        <div class="step">
+
+          <span class="step-number">
+            03
+          </span>
+
+          <h3>
+            Diseño + configuración
+          </h3>
+
+          <p>
+            Adaptamos tu identidad visual y configuramos la plataforma
+            según las necesidades de tu negocio.
+          </p>
+
+        </div>
+
+
+        <div class="step">
+
+          <span class="step-number">
+            04
+          </span>
+
+          <h3>
+            Lanzamiento
+          </h3>
+
+          <p>
+            Revisamos, probamos y ponemos todo online.
+            Después del lanzamiento, te acompaño para que puedas
+            gestionar tu tienda con autonomía.
+          </p>
+
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       CTA FINAL
+       ============================================================ -->
+  <section class="section cta-final" id="contacto">
+
+    <div class="container cta-inner">
+
+      <div class="cta-bg">
+
+        <svg class="alchemy-mark cta-mark" viewBox="0 0 200 200" aria-hidden="true">
+          <circle cx="100" cy="100" r="80" fill="none" stroke="currentColor" stroke-width="1"/>
+          <polygon points="100,30 170,140 30,140" fill="none" stroke="currentColor" stroke-width="1.5"/>
+        </svg>
+
+      </div>
+
+      <p class="kicker">
+        ¿arrancamos?
+      </p>
+
+      <h2 class="cta-title">
+        ¿Lista para transformar<br>
+        tu forma de <em>vender</em>?
+      </h2>
+
+      <p class="cta-sub">
+        Contame qué vendés, cómo vendés hoy y qué te gustaría mejorar.
+        Vemos juntas qué necesita tu tienda y cómo podemos llevarlo
+        a una experiencia más clara, profesional y fácil de gestionar.
+      </p>
+
+      <div class="hero-ctas">
+
+                <a
+          href="https://wa.me/5491172546211?text=%C2%A1Hola!%20Vengo%20de%20tu%20portfolio.%20Quiero%20m%C3%A1s%20informaci%C3%B3n%20para%20crear%20mi%20tienda%20online."
+          target="_blank"
+          rel="noopener"
+          class="btn btn-primary"
+        >
+          Escribime por WhatsApp →
+        </a>
+
+        <a
+          href="https://instagram.com/alquimiadeve"
+          target="_blank"
+          rel="noopener"
+          class="btn btn-secondary"
+        >
+          @alquimiadeve
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       FOOTER
+       ============================================================ -->
+  <footer class="footer">
+
+    <div class="container footer-inner">
+
+      <div class="footer-brand">
+
+        <span class="nav-logo-symbol">
+          ◈
+        </span>
+
+        <span class="nav-logo-text">
+          alquimia<em>deve</em>
+        </span>
+
+      </div>
+
+
+      <div class="footer-links">
+
+        <a
+          href="https://instagram.com/alquimiadeve"
+          target="_blank"
+          rel="noopener"
+        >
+          Instagram
+        </a>
+
+        <a
+          href="https://tiktok.com/@alquimiadeve"
+          target="_blank"
+          rel="noopener"
+        >
+          TikTok
+        </a>
+
+        <a
+          href="https://wa.me/5491172546211?text=%C2%A1Hola!%20Vengo%20de%20tu%20web.%20Quiero%20m%C3%A1s%20informaci%C3%B3n%20para%20crear%20mi%20tienda%20online."
+          target="_blank"
+          rel="noopener"
+        >
+          WhatsApp
+        </a>
+
+      </div>
+
+      <p class="footer-copy">
+        © 2026 Alquimiadev · Diseño + código
+      </p>
+
+    </div>
+
+  </footer>
+
+
+  <script src="script.js"></script>
+
+</body>
+</html>
+

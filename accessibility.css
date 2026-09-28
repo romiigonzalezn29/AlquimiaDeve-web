@@ -1,0 +1,71 @@
+/* ============================================================
+   ALQUIMIADEV — Accesibilidad (se carga DESPUÉS de styles.css)
+   ============================================================ */
+
+/* Texto solo para lectores de pantalla */
+.sr-only {
+  position: absolute;
+  width: 1px; height: 1px;
+  margin: -1px; padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Skip link: visible solo al recibir foco con teclado */
+.skip-link {
+  position: fixed;
+  top: 12px; left: 12px;
+  z-index: 200;
+  padding: 12px 20px;
+  background: var(--dorado);
+  color: var(--negro);
+  font-weight: 500;
+  border-radius: 8px;
+  text-decoration: none;
+  transform: translateY(-200%);
+}
+.skip-link:focus { transform: translateY(0); }
+
+/* Foco visible en todo lo interactivo */
+a:focus-visible,
+button:focus-visible {
+  outline: 3px solid var(--dorado);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+.btn-primary:focus-visible { outline-color: var(--blanco); }
+[tabindex="-1"]:focus { outline: none; }
+
+/* Que el header fijo no tape las secciones al saltar a un ancla */
+[id] { scroll-margin-top: 80px; }
+
+/* Área táctil mínima del botón hamburguesa */
+.nav-toggle { padding: 10px; margin: -10px; }
+
+/* Contraste: textos que quedaban por debajo de 4.5:1 */
+.footer-copy { opacity: 0.75; }
+.project-tag { opacity: 1; }
+
+/* Listas y definiciones sin estilos por defecto */
+.proceso-grid { list-style: none; }
+dl.sobre-mi-stats { margin: 0; }
+.stat { flex-direction: column-reverse; }
+.stat dd { margin: 0; }
+
+/* Reemplaza el style="padding: 2rem" que estaba inline */
+.project-card .project-info { padding: 2rem; }
+
+/* Respetar prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+  .particles { display: none; }
+  .service-card:hover,
+  .project-card:hover,
+  .btn-primary:hover { transform: none; }
+}

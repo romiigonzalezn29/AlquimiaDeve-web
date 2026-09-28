@@ -1,0 +1,14 @@
+/* ALQUIMIADEV — Ajustes de performance (se carga después de styles.css) */
+
+/* backdrop-filter sobre fondos casi sólidos no se nota pero cuesta pintado.
+   Se mantiene solo en la navegación y en el panel de código. */
+.service-card,
+.btn-secondary {
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+}
+
+/* Menos partículas animadas en pantallas chicas */
+@media (max-width: 640px) {
+  .particle:nth-child(n+16) { display: none; }
+}
