@@ -1,3 +1,4 @@
+
 /* ALQUIMIADEV — Eventos de analytics (sin dependencias, no toca el HTML)
    Detecta los clics por el destino del link y envía el evento a Plausible
    (y a GA4 si algún día se carga gtag). */
@@ -15,6 +16,7 @@
 
   // Regla → nombre de evento (gana la primera que coincida)
   const RULES = [
+    ['a[href*="alquimia-deve-web.vercel.app/?utm_source=links&utm_medium=bio"]', 'click_portfolio'],
     ['a[href*="wa.me"]', 'click_whatsapp'],
     ['a[href*="instagram.com"]', 'click_instagram'],
     ['a[href*="tiktok.com"]', 'click_tiktok'],
@@ -26,6 +28,8 @@
     if (el.closest('#navMobile')) return 'nav-mobile';
     if (el.closest('header')) return 'nav';
     if (el.closest('footer')) return 'footer';
+    if (el.closest('.links')) return 'links';
+    if (el.closest('.socials')) return 'socials';
     const section = el.closest('section[id]');
     return section ? section.id : 'otro';
   }
