@@ -1,29 +1,32 @@
+/* ALQUIMIADEV — Analytics (Plausible) */
 
-/* ALQUIMIADEV — Eventos de analytics (sin dependencias, no toca el HTML)
-   Detecta los clics por el destino del link y envía el evento a Plausible
-   (y a GA4 si algún día se carga gtag). */
+// 1) Stub + init de Plausible (siempre primero)
+window.plausible = window.plausible || function () {
+  (window.plausible.q = window.plausible.q || []).push(arguments);
+};
+window.plausible.init = window.plausible.init || function (i) {
+  window.plausible.o = i || {};
+};
+window.plausible.init();
+
+// 2) Eventos de clic
 (function () {
-  // Cola: si el script de Plausible aún no cargó (o lo bloquea un adblocker),
-  // la llamada no falla ni rompe la página.
-  window.plausible = window.plausible || function () {
-    (window.plausible.q = window.plausible.q || []).push(arguments);
-  };
-
   function send(name, props) {
-    window.plausible(name, { props: props });
+    if (typeof window.plausible === 'function') {
+      window.plausible(name, { props: props });
+    }
     if (typeof window.gtag === 'function') window.gtag('event', name, props);
   }
 
-  // Regla → nombre de evento (gana la primera que coincida)
-  const RULES = [
-    ['a[href*="alquimia-deve-web.vercel.app/?utm_source=links&utm_medium=bio"]', 'click_portfolio'],
-    ['a[href*="wa.me"]', 'click_whatsapp'],
-    ['a[href*="instagram.com"]', 'click_instagram'],
-    ['a[href*="tiktok.com"]', 'click_tiktok'],
-    ['a.btn[href^="#"], a.nav-cta, a.link-arrow, a[href="#contacto"]', 'click_cta'],
-  ];
+const RULES = [
+  // Portfolio: links.html -> home (cubre el dominio actual y el futuro)
+  ['a[href*="alquimia-deve-web.vercel.app"], a[href*="alquimiadev.com"]', 'click_portfolio'],
+  ['a[href*="wa.me"]', 'click_whatsapp'],
+  ['a[href*="instagram.com"]', 'click_instagram'],
+  ['a[href*="tiktok.com"]', 'click_tiktok'],
+  ['a.btn[href^="#"], a.nav-cta, a.link-arrow, a[href="#contacto"]', 'click_cta'],
+];
 
-  // Zona de la página donde ocurrió el clic
   function zoneOf(el) {
     if (el.closest('#navMobile')) return 'nav-mobile';
     if (el.closest('header')) return 'nav';
