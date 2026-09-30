@@ -48,7 +48,7 @@ Resultados obtenidos con **Google Lighthouse** sobre la versión desplegada en p
 
 | Categoría | Resultado |
 |:---|:---:|
-| Performance | **96** |
+| Performance | **97** |
 | Accesibilidad | **100** |
 | Buenas prácticas | **100** |
 | SEO | **100** |
