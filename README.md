@@ -1,8 +1,10 @@
 # ◈ Alquimiadev — Web
 
-Sitio web oficial de **Alquimiadev**, un proyecto enfocado en diseño, UX y desarrollo para marcas de productos físicos que quieren profesionalizar su presencia y venta online.
+Sitio web oficial de **Alquimiadev**, un proyecto que combina **diseño UX/UI, desarrollo web y estrategia digital** para marcas de productos físicos que buscan profesionalizar su presencia online.
 
 > **Diseño + código para marcas que quieren vender online.**
+
+🔗 **Demo:** https://alquimia-deve-web.vercel.app/
 
 ---
 
@@ -10,134 +12,190 @@ Sitio web oficial de **Alquimiadev**, un proyecto enfocado en diseño, UX y desa
 
 Alquimiadev nace de la combinación entre **diseño, experiencia de usuario y desarrollo web**.
 
-El objetivo de este sitio es presentar la propuesta de servicios de forma clara y cercana, mostrando cómo una tienda online puede convertirse en una herramienta para ordenar y mejorar la experiencia de compra.
+El sitio fue diseñado y desarrollado como una pieza de portfolio y como plataforma de presentación del proyecto, con foco en:
 
-La identidad visual combina elementos de **alquimia y tecnología**, buscando transmitir creatividad sin perder el enfoque profesional.
+- Claridad de la propuesta de valor.
+- Experiencia de navegación.
+- Responsive design.
+- Performance.
+- Accesibilidad.
+- SEO técnico.
+- Seguridad.
+- Analítica respetuosa con la privacidad.
+
+El proyecto fue desarrollado **sin frameworks ni librerías externas**, utilizando tecnologías web nativas.
 
 ---
 
-## 🛠️ Tecnologías
+## 🛠️ Stack
 
-* HTML5
-* CSS3
-* JavaScript
-* Google Fonts
-* SVG
-* Responsive Design
+- **HTML5**
+- **CSS3**
+- **JavaScript Vanilla**
+- **SVG**
+- **Responsive Design**
+- **JSON-LD / Schema.org**
+- **Plausible Analytics**
+- **Vercel**
+
+No requiere dependencias ni proceso de build.
+
+---
+
+## 📊 Calidad y performance
+
+Resultados obtenidos con **Google Lighthouse** sobre la versión desplegada en producción:
+
+| Categoría | Resultado |
+|:---|:---:|
+| Performance | **96** |
+| Accesibilidad | **100** |
+| Buenas prácticas | **100** |
+| SEO | **100** |
+| Navegación por agentes | **2/2** |
+
+El sitio fue evaluado en aspectos de **rendimiento, accesibilidad, buenas prácticas, SEO y navegación mediante agentes**.
+
+Estos resultados corresponden a una medición de la versión desplegada en producción y pueden variar según las condiciones de ejecución de Lighthouse.
+
+---
+
+## 🧩 Decisiones técnicas
+
+### Performance
+
+- Tipografías **autoalojadas en formato WOFF2**, evitando dependencias innecesarias de servicios externos.
+- `preload` aplicado a recursos críticos utilizados en el primer viewport.
+- Scripts cargados mediante `defer`.
+- CSS separado por responsabilidades.
+- Optimización de recursos para reducir el impacto sobre el renderizado inicial.
+- Configuración de caché para recursos estáticos.
+
+### Accesibilidad
+
+- HTML semántico.
+- Jerarquía de headings coherente.
+- `skip-link` para navegación por teclado.
+- Landmarks y atributos ARIA cuando son necesarios.
+- Menú responsive con `aria-expanded` y `aria-controls`.
+- Elementos puramente decorativos ocultos a tecnologías asistivas.
+- Indicaciones para enlaces que abren nuevas pestañas.
+- Estilos y lógica específicos para mejoras de accesibilidad.
+
+### SEO
+
+- Meta tags optimizados.
+- URL canónica.
+- Open Graph.
+- Twitter Cards.
+- `robots.txt`.
+- `sitemap.xml`.
+- Datos estructurados mediante **Schema.org / JSON-LD**.
+
+Se utilizan estructuras `WebSite` y `ProfessionalService` para aportar contexto semántico adicional a los buscadores.
+
+### Seguridad
+
+- **Content Security Policy (CSP)**.
+- `X-Frame-Options`.
+- `X-Content-Type-Options`.
+- `Referrer-Policy`.
+- `Permissions-Policy`.
+- Configuración de cabeceras mediante `vercel.json`.
+- Sin scripts inline: la lógica se mantiene en archivos JavaScript separados.
+
+### Analítica
+
+Se utiliza **Plausible Analytics** como solución de analítica orientada a la privacidad.
+
+Se implementaron eventos personalizados para medir interacciones relevantes, entre ellos:
+
+- `click_whatsapp`
+- `click_portfolio`
+- `click_cta`
+- `click_instagram`
+- `click_tiktok`
+
+Los eventos incluyen propiedades que permiten identificar la zona de la interfaz desde la que se produjo la interacción.
+
+---
+
+## 🤖 Navegación por agentes
+
+El sitio obtuvo **2/2** en la categoría de navegación por agentes de Lighthouse.
+
+Esta evaluación está relacionada con la capacidad de agentes automatizados para **interpretar y recorrer interfaces web**, incluyendo la identificación y navegación de elementos interactivos.
+
+El resultado se documenta como una métrica específica de Lighthouse y no implica compatibilidad universal con cualquier agente o sistema de IA.
+
+---
+
+## 🔗 Link in bio
+
+El proyecto incluye una página independiente en `/links`, diseñada como landing para utilizarse como enlace principal desde redes sociales.
+
+La página permite:
+
+- Centralizar accesos importantes.
+- Dirigir tráfico hacia el portfolio.
+- Facilitar el contacto por WhatsApp.
+- Medir interacciones.
+- Utilizar parámetros UTM para analizar campañas.
 
 ---
 
 ## 🎨 Identidad visual
 
-La interfaz utiliza una estética inspirada en:
+La identidad combina conceptos de **alquimia y tecnología**:
 
-* ✦ Alquimia y simbolismo
-* ◈ Tecnología y código
-* Tipografía editorial
-* Elementos geométricos
-* Fondos oscuros
-* Detalles en violeta y dorado
-* Microinteracciones y elementos visuales relacionados con el desarrollo
+- ✦ Simbolismo y elementos alquímicos.
+- ◈ Código y lenguaje visual tecnológico.
+- Tipografía editorial.
+- Elementos geométricos.
+- Fondos oscuros.
+- Violeta y dorado como colores de acento.
+- Microinteracciones inspiradas en interfaces de desarrollo.
 
-La intención es que la identidad de Alquimiadev se sienta **mística, tecnológica y profesional**, evitando una estética genérica de agencia digital.
-
----
-
-## 📐 Estructura
-
-El sitio está organizado en diferentes secciones:
-
-### Hero
-
-Presentación de la propuesta de valor y principales llamados a la acción.
-
-### Sobre mí
-
-Presentación del perfil profesional y del enfoque de trabajo.
-
-### Servicios
-
-Descripción de los servicios de:
-
-* Diseño + UX
-* Configuración + desarrollo
-* Lanzamiento + autonomía
-
-### Beneficios
-
-Explicación del impacto de contar con una tienda online propia:
-
-* Menos tareas repetitivas
-* Una experiencia de compra más clara
-* Una imagen de marca más profesional
-
-### Proceso
-
-Presentación de las cuatro etapas de trabajo:
-
-1. Diagnóstico
-2. Estructura
-3. Diseño + configuración
-4. Lanzamiento
-
-### Contacto
-
-Acceso directo a WhatsApp y redes sociales.
+El objetivo es construir una identidad **mística, tecnológica y profesional**, evitando la estética genérica de una agencia digital.
 
 ---
 
-## 🚀 Ejecutar el proyecto localmente
+## 📐 Arquitectura del sitio
 
-Cloná el repositorio:
+El sitio se organiza en las siguientes secciones:
 
-```bash
-git clone https://github.com/romiigonzalezn29/AlquimiaDeve-web.git
-```
-
-Ingresá al proyecto:
-
-```bash
-cd AlquimiaDeve-web
-```
-
-Como es un sitio estático, podés abrir `index.html` directamente en el navegador o utilizar una extensión como **Live Server** en VS Code para trabajar con recarga automática.
+1. **Hero** — propuesta de valor y llamados a la acción.
+2. **Sobre mí** — perfil profesional y enfoque de trabajo.
+3. **Servicios** — Diseño + UX, Configuración + desarrollo y Lanzamiento + autonomía.
+4. **Beneficios** — principales beneficios de profesionalizar el canal de venta.
+5. **Proceso** — Diagnóstico, Estructura, Diseño + configuración y Lanzamiento.
+6. **Contacto** — acceso a WhatsApp y redes sociales.
 
 ---
 
-## 📁 Estructura
+## 📁 Estructura del repositorio
 
 ```text
 AlquimiaDeve-web/
 │
 ├── index.html
 ├── styles.css
+├── accessibility.css
+├── performance.css
 ├── script.js
+├── a11y.js
+├── analytics.js
+│
+├── fonts/
+│   └── *.woff2
+│
+├── links/
+│   ├── links.html
+│   ├── links.css
+│   └── links.js
+│
+├── logo.svg
+├── robots.txt
+├── sitemap.xml
+├── vercel.json
 └── README.md
-```
-
----
-
-## 🔮 Próximos pasos
-
-El proyecto está pensado para continuar evolucionando junto con la marca.
-
-Algunas mejoras futuras pueden incluir:
-
-* Portfolio de proyectos
-* Casos de estudio
-* Formularios de contacto
-* Animaciones e interacciones adicionales
-* Optimización SEO
-* Analytics
-* Mejoras de accesibilidad
-* Integraciones con herramientas de contacto y automatización
-
----
-
-## ✦ Alquimiadev
-
-**Diseño + código para marcas que quieren vender online.**
-
-Diseño · UX · Desarrollo
-
-[@alquimiadeve](https://www.instagram.com/alquimiadeve)
