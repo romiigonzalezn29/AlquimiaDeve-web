@@ -11,7 +11,19 @@
   <meta name="robots" content="index, follow, max-image-preview:large" />
   <link rel="canonical" href="https://alquimiadev.com/" />
   <meta name="theme-color" content="#2a0a3d" />
-
+<script>
+  // Aplicar tema ANTES de renderizar (evita flash)
+  (function () {
+    try {
+      var stored = localStorage.getItem('theme');
+      var prefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
+      var theme = stored || (prefersLight ? 'light' : 'dark');
+      document.documentElement.setAttribute('data-theme', theme);
+    } catch (e) {
+      document.documentElement.setAttribute('data-theme', 'dark');
+    }
+  })();
+</script>
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="logo.svg" />
 
@@ -109,6 +121,7 @@
       <a href="#inicio" class="nav-logo" aria-label="Alquimiadev, ir al inicio">
         <span class="nav-logo-symbol" aria-hidden="true">◈</span>
         <span class="nav-logo-text">alquimia<em>deve</em></span>
+      
       </a>
 
       <nav class="nav-links" aria-label="Principal">
@@ -118,6 +131,27 @@
         <a href="#planes">Planes</a>
         <a href="#contacto" class="nav-cta">Hablemos <span aria-hidden="true">→</span></a>
       </nav>
+
+      <!-- Botón de tema -->
+<button
+  type="button"
+  class="theme-toggle"
+  id="themeToggle"
+  aria-label="Cambiar tema"
+  aria-pressed="false"
+>
+  <span class="theme-icon theme-icon-sun" aria-hidden="true">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="18" height="18">
+      <circle cx="12" cy="12" r="4"/>
+      <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/>
+    </svg>
+  </span>
+  <span class="theme-icon theme-icon-moon" aria-hidden="true">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="18" height="18">
+      <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+    </svg>
+  </span>
+</button>
 
       <button type="button" class="nav-toggle" id="navToggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="navMobile">
         <span aria-hidden="true"></span><span aria-hidden="true"></span><span aria-hidden="true"></span>

@@ -188,3 +188,45 @@
     });
   });
 })();
+
+/* ============================================================
+   TEMA CLARO / OSCURO
+   ============================================================ */
+(function initThemeToggle() {
+  const toggle = document.getElementById('themeToggle');
+  const html = document.documentElement;
+
+  if (!toggle) return;
+
+  // El tema ya fue aplicado por el script inline del <head>
+  const currentTheme = html.getAttribute('data-theme') || 'dark';
+  toggle.setAttribute('aria-pressed', currentTheme === 'light' ? 'true' : 'false');
+
+  // Toggle al hacer clic
+  toggle.addEventListener('click', () => {
+    const current = html.getAttribute('data-theme') || 'dark';
+    const next = current === 'light' ? 'dark' : 'light';
+
+    html.setAttribute('data-theme', next);
+    toggle.setAttribute('aria-pressed', next === 'light' ? 'true' : 'false');
+
+    try {
+      localStorage.setItem('theme', next);
+    } catch (e) {
+      // Si localStorage está bloqueado, no pasa nada
+    }
+  });
+
+  // Escuchar cambios de preferencia del sistema (solo si el usuario no eligió manualmente)
+  if (window.matchMedia) {
+    const mq = window.matchMedia('(prefers-color-scheme: light)');
+    mq.addEventListener('change', (e) => {
+      const stored = localStorage.getItem('theme');
+      if (!stored) {
+        const next = e.matches ? 'light' : 'dark';
+        html.setAttribute('data-theme', next);
+        toggle.setAttribute('aria-pressed', next === 'light' ? 'true' : 'false');
+      }
+    });
+  }
+})();
