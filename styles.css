@@ -725,6 +725,307 @@ body {
   color: var(--lila);
 }
 
+/* ============================================================
+   PLANES
+   ============================================================ */
+
+.planes {
+  background: var(--violeta-deep);
+  position: relative;
+  overflow: hidden;
+}
+
+.planes-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  margin-bottom: 40px;
+  align-items: stretch;
+}
+
+/* ---------- CARD DEL PLAN ---------- */
+.plan {
+  position: relative;
+  padding: 40px 32px 32px;
+  background: rgba(42, 10, 61, 0.5);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(225, 190, 231, 0.15);
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.3s ease;
+}
+
+.plan:hover {
+  border-color: rgba(255, 193, 7, 0.4);
+  transform: translateY(-4px);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+}
+
+.plan.destacado {
+  border-color: var(--dorado);
+  border-width: 2px;
+  box-shadow: 0 20px 60px rgba(255, 193, 7, 0.15);
+  background: rgba(42, 10, 61, 0.7);
+}
+
+.plan.destacado:hover {
+  box-shadow: 0 25px 70px rgba(255, 193, 7, 0.25);
+}
+
+/* ---------- BADGE ---------- */
+.plan-badge {
+  display: inline-block;
+  align-self: flex-start;
+  padding: 6px 14px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  border-radius: 100px;
+  margin-bottom: 20px;
+  font-weight: 500;
+}
+
+.plan-base .plan-badge {
+  background: rgba(225, 190, 231, 0.12);
+  color: var(--lila);
+}
+
+.plan-full .plan-badge {
+  background: rgba(255, 193, 7, 0.18);
+  color: var(--dorado);
+}
+
+.plan-premium .plan-badge {
+  background: rgba(255, 193, 7, 0.15);
+  color: var(--dorado);
+}
+
+/* ---------- RIBBON "Más elegido" ---------- */
+.plan-ribbon {
+  position: absolute;
+  top: 20px;
+  right: -32px;
+  background: var(--dorado);
+  color: var(--negro);
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 6px 40px;
+  transform: rotate(45deg);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* ---------- NOMBRE Y TAGLINE ---------- */
+.plan-name {
+  font-family: var(--font-serif);
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--blanco);
+  margin-bottom: 10px;
+  line-height: 1.1;
+}
+
+.plan-tagline {
+  font-size: 14px;
+  color: var(--lila);
+  margin-bottom: 24px;
+  line-height: 1.5;
+  opacity: 0.85;
+  font-style: italic;
+}
+
+/* ---------- PRECIO ---------- */
+.plan-price {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 20px 0;
+  border-top: 1px solid rgba(225, 190, 231, 0.15);
+  border-bottom: 1px solid rgba(225, 190, 231, 0.15);
+  margin-bottom: 24px;
+}
+
+.plan-amount {
+  font-family: var(--font-serif);
+  font-size: 40px;
+  font-weight: 700;
+  color: var(--dorado);
+  line-height: 1;
+}
+
+.plan-currency {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--lila);
+  opacity: 0.7;
+}
+
+/* ---------- LISTA DE FEATURES ---------- */
+.plan-features {
+  list-style: none;
+  margin-bottom: 32px;
+  flex-grow: 1;
+}
+
+.plan-features li {
+  position: relative;
+  padding: 8px 0 8px 22px;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--blanco);
+  border-bottom: 1px dashed rgba(225, 190, 231, 0.08);
+}
+
+.plan-features li:last-child {
+  border-bottom: none;
+}
+
+.plan-features li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  top: 8px;
+  color: var(--dorado);
+  font-weight: 700;
+  font-size: 14px;
+}
+
+/* ---------- BOTONES ---------- */
+.btn-plan {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  padding: 14px 24px;
+  border-radius: 100px;
+  font-family: var(--font-sans);
+  font-weight: 500;
+  font-size: 15px;
+  text-decoration: none;
+  transition: all 0.25s ease;
+  margin-top: auto;
+  border: 1px solid transparent;
+}
+
+.btn-plan-base {
+  background: transparent;
+  border-color: rgba(225, 190, 231, 0.3);
+  color: var(--blanco);
+}
+
+.btn-plan-base:hover {
+  border-color: var(--dorado);
+  color: var(--dorado);
+}
+
+.btn-plan-full {
+  background: var(--dorado);
+  color: var(--negro);
+  font-weight: 600;
+}
+
+.btn-plan-full:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(255, 193, 7, 0.35);
+}
+
+.btn-plan-premium {
+  background: transparent;
+  border-color: rgba(255, 193, 7, 0.5);
+  color: var(--dorado);
+}
+
+.btn-plan-premium:hover {
+  background: rgba(255, 193, 7, 0.12);
+  border-color: var(--dorado);
+}
+
+/* ---------- NOTA AL PIE ---------- */
+.planes-nota {
+  font-size: 13px;
+  color: var(--lila);
+  opacity: 0.6;
+  text-align: center;
+  font-style: italic;
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* ============================================================
+   PLANES — RESPONSIVE
+   ============================================================ */
+
+@media (max-width: 1024px) {
+  .planes-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .plan {
+    padding: 36px 28px 28px;
+  }
+
+  .plan-ribbon {
+    right: -36px;
+    font-size: 9px;
+    padding: 5px 44px;
+  }
+}
+
+@media (max-width: 640px) {
+  .planes-grid {
+    gap: 20px;
+  }
+
+  .plan {
+    padding: 32px 24px 24px;
+    border-radius: 16px;
+  }
+
+  .plan-name {
+    font-size: 26px;
+  }
+
+  .plan-amount {
+    font-size: 34px;
+  }
+
+  .plan-features li {
+    font-size: 13.5px;
+    padding: 7px 0 7px 20px;
+  }
+
+  .plan-features li::before {
+    top: 7px;
+    font-size: 13px;
+  }
+
+  .btn-plan {
+    padding: 13px 20px;
+    font-size: 14px;
+  }
+
+  .plan-ribbon {
+    top: 16px;
+    right: -34px;
+    font-size: 8.5px;
+    padding: 5px 42px;
+  }
+
+  .planes-nota {
+    font-size: 12px;
+  }
+}
+
 /* ---------- CTA FINAL ---------- */
 .cta-final {
   background:
