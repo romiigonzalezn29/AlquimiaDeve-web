@@ -2,6 +2,10 @@
    ALQUIMIADEV — Interacciones del portfolio
    ============================================================ */
 
+// Detectar preferencia de movimiento reducido
+const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+
 // ============================================================
 // 1. MENÚ HAMBURGUESA (mobile)
 // ============================================================
@@ -14,8 +18,9 @@
   // Abrir/cerrar al hacer clic en el botón
   navToggle.addEventListener('click', (e) => {
     e.stopPropagation();
-    navMobile.classList.toggle('active');
+    const isOpen = navMobile.classList.toggle('active');
     navToggle.classList.toggle('active');
+    navToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
   });
 
   // Cerrar al hacer clic en un link
@@ -23,6 +28,7 @@
     link.addEventListener('click', () => {
       navMobile.classList.remove('active');
       navToggle.classList.remove('active');
+      navToggle.setAttribute('aria-expanded', 'false');
     });
   });
 
@@ -35,23 +41,27 @@
     ) {
       navMobile.classList.remove('active');
       navToggle.classList.remove('active');
+      navToggle.setAttribute('aria-expanded', 'false');
     }
   });
 
-  // Cerrar al hacer scroll (opcional, mejora UX)
+  // Cerrar al hacer scroll
   window.addEventListener('scroll', () => {
     if (navMobile.classList.contains('active') && window.scrollY > 100) {
       navMobile.classList.remove('active');
       navToggle.classList.remove('active');
+      navToggle.setAttribute('aria-expanded', 'false');
     }
-  });
+  }, { passive: true });
 })();
 
 
 // ============================================================
-// 2. PARTÍCULAS DORADAS
+// 2. PARTÍCULAS DORADAS (solo si no hay reduced-motion)
 // ============================================================
 (function initParticles() {
+  if (prefersReducedMotion) return;
+
   const container = document.getElementById('particles');
   if (!container) return;
 
@@ -79,20 +89,28 @@
 
 
 // ============================================================
-// 3. SCROLL REVEAL (fade-in al hacer scroll)
+// 3. SCROLL REVEAL (con fallback si no hay IntersectionObserver
+//    o si el usuario prefiere reduced-motion)
 // ============================================================
 (function initScrollReveal() {
-  const elements = document.querySelectorAll(
-    '.section-header, .service-card, .project-card, .step, .sobre-mi-text, .sobre-mi-stats'
-  );
+  const SELECTORS = [
+    '.section-header',
+    '.service-card',
+    '.plan',
+    '.web-feature',
+    '.decision-card',
+    '.sobre-mi-text',
+    '.sobre-mi-stats'
+  ].join(', ');
 
+  const elements = document.querySelectorAll(SELECTORS);
   if (!elements.length) return;
 
-  // Si el navegador no soporta IntersectionObserver, mostrar todo
-  if (!('IntersectionObserver' in window)) {
+  // Si no hay IO o el usuario prefiere reduced-motion, mostrar todo sin animación
+  if (!('IntersectionObserver' in window) || prefersReducedMotion) {
     elements.forEach((el) => {
       el.style.opacity = '1';
-      el.style.transform = 'translateY(0)';
+      el.style.transform = 'none';
     });
     return;
   }
@@ -121,22 +139,17 @@
   });
 
   // Stagger (retraso escalonado)
-  document.querySelectorAll('.service-card').forEach((card, i) => {
-    card.style.transitionDelay = i * 0.1 + 's';
-  });
-
-  document.querySelectorAll('.project-card').forEach((card, i) => {
-    card.style.transitionDelay = i * 0.1 + 's';
-  });
-
-  document.querySelectorAll('.step').forEach((step, i) => {
-    step.style.transitionDelay = i * 0.1 + 's';
+  const staggerGroups = ['.service-card', '.plan', '.web-feature', '.decision-card'];
+  staggerGroups.forEach((selector) => {
+    document.querySelectorAll(selector).forEach((el, i) => {
+      el.style.transitionDelay = i * 0.1 + 's';
+    });
   });
 })();
 
 
 // ============================================================
-// 4. NAV — Cambio de fondo al hacer scroll
+// 4. NAV — Cambio de clase al hacer scroll (no inline styles)
 // ============================================================
 (function initNavScroll() {
   const nav = document.querySelector('.nav');
@@ -145,13 +158,7 @@
   let ticking = false;
 
   function updateNav() {
-    if (window.scrollY > 50) {
-      nav.style.background = 'rgba(26, 10, 40, 0.95)';
-      nav.style.borderBottomColor = 'rgba(255, 193, 7, 0.2)';
-    } else {
-      nav.style.background = 'rgba(26, 10, 40, 0.75)';
-      nav.style.borderBottomColor = 'rgba(255, 193, 7, 0.1)';
-    }
+    nav.classList.toggle('nav--scrolled', window.scrollY > 50);
     ticking = false;
   }
 
@@ -160,49 +167,32 @@
       requestAnimationFrame(updateNav);
       ticking = true;
     }
-  });
+  }, { passive: true });
+
+  // Estado inicial
+  updateNav();
 })();
 
 
 // ============================================================
-// 5. SMOOTH SCROLL PARA LINKS INTERNOS (fallback)
+// 5. SMOOTH SCROLL — eliminado
+//    El CSS ya maneja scroll-behavior: smooth y respeta
+//    prefers-reduced-motion automáticamente.
 // ============================================================
-(function initSmoothScroll() {
-  document.querySelectorAll('a[href^="#"]').forEach((link) => {
-    link.addEventListener('click', (e) => {
-      const targetId = link.getAttribute('href');
-      if (targetId === '#' || targetId.length < 2) return;
 
-      const target = document.querySelector(targetId);
-      if (!target) return;
 
-      e.preventDefault();
-      const navHeight = 80;
-      const targetPosition =
-        target.getBoundingClientRect().top + window.scrollY - navHeight;
-
-      window.scrollTo({
-        top: targetPosition,
-        behavior: 'smooth',
-      });
-    });
-  });
-})();
-
-/* ============================================================
-   TEMA CLARO / OSCURO
-   ============================================================ */
+// ============================================================
+// 6. TEMA CLARO / OSCURO
+// ============================================================
 (function initThemeToggle() {
   const toggle = document.getElementById('themeToggle');
   const html = document.documentElement;
 
   if (!toggle) return;
 
-  // El tema ya fue aplicado por el script inline del <head>
   const currentTheme = html.getAttribute('data-theme') || 'dark';
   toggle.setAttribute('aria-pressed', currentTheme === 'light' ? 'true' : 'false');
 
-  // Toggle al hacer clic
   toggle.addEventListener('click', () => {
     const current = html.getAttribute('data-theme') || 'dark';
     const next = current === 'light' ? 'dark' : 'light';
@@ -213,20 +203,28 @@
     try {
       localStorage.setItem('theme', next);
     } catch (e) {
-      // Si localStorage está bloqueado, no pasa nada
+      // localStorage bloqueado — no hacemos nada
     }
   });
 
-  // Escuchar cambios de preferencia del sistema (solo si el usuario no eligió manualmente)
+  // Preferencia del sistema (solo si el usuario no eligió manualmente)
   if (window.matchMedia) {
     const mq = window.matchMedia('(prefers-color-scheme: light)');
-    mq.addEventListener('change', (e) => {
-      const stored = localStorage.getItem('theme');
+    const handler = (e) => {
+      let stored = null;
+      try { stored = localStorage.getItem('theme'); } catch (_) {}
       if (!stored) {
         const next = e.matches ? 'light' : 'dark';
         html.setAttribute('data-theme', next);
         toggle.setAttribute('aria-pressed', next === 'light' ? 'true' : 'false');
       }
-    });
+    };
+
+    // Fallback para Safari viejo
+    if (typeof mq.addEventListener === 'function') {
+      mq.addEventListener('change', handler);
+    } else if (typeof mq.addListener === 'function') {
+      mq.addListener(handler);
+    }
   }
 })();
