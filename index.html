@@ -5,47 +5,52 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <!-- SEO básico -->
-  <title>Tiendas online en Tiendanube y Empretienda | Alquimiadev</title>
-  <meta name="description" content="Diseño, UX y desarrollo para crear o profesionalizar tu tienda online en Tiendanube y Empretienda. Para marcas de LATAM. Proyectos de 15 a 20 días hábiles." />
+  <title>Tiendas online, páginas web y mejoras | Alquimiadev</title>
+  <meta name="description" content="Creo tiendas online en Tiendanube, páginas web profesionales y mejoras para sitios existentes. Diseño, desarrollo y estrategia para negocios de LATAM." />
   <meta name="author" content="Alquimiadev" />
   <meta name="robots" content="index, follow, max-image-preview:large" />
   <link rel="canonical" href="https://alquimiadev.com/" />
-  <meta name="theme-color" content="#2a0a3d" />
-<script>
-  // Aplicar tema ANTES de renderizar (evita flash)
-  (function () {
-    try {
-      var stored = localStorage.getItem('theme');
-      var prefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
-      var theme = stored || (prefersLight ? 'light' : 'dark');
-      document.documentElement.setAttribute('data-theme', theme);
-    } catch (e) {
-      document.documentElement.setAttribute('data-theme', 'dark');
-    }
-  })();
-</script>
+
+  <!-- Theme color dinámico -->
+  <meta name="theme-color" content="#2a0a3d" media="(prefers-color-scheme: dark)" />
+  <meta name="theme-color" content="#faf7fc" media="(prefers-color-scheme: light)" />
+
+  <script>
+    // Aplicar tema ANTES de renderizar (evita flash)
+    (function () {
+      try {
+        var stored = localStorage.getItem('theme');
+        var prefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
+        var theme = stored || (prefersLight ? 'light' : 'dark');
+        document.documentElement.setAttribute('data-theme', theme);
+      } catch (e) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+      }
+    })();
+  </script>
+
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="logo.svg" />
 
-  <!-- Open Graph (LinkedIn, WhatsApp, Facebook) -->
+  <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Alquimiadev" />
   <meta property="og:locale" content="es_AR" />
-  <meta property="og:title" content="Alquimiadev · Diseño + código para marcas que venden online" />
-  <meta property="og:description" content="Diseño, UX y desarrollo para tiendas online en Tiendanube y Empretienda." />
+  <meta property="og:title" content="Tiendas online, páginas web y mejoras | Alquimiadev" />
+  <meta property="og:description" content="Creo tiendas online en Tiendanube, páginas web profesionales y mejoras para sitios existentes." />
   <meta property="og:url" content="https://alquimiadev.com/" />
   <meta property="og:image" content="https://alquimiadev.com/og-image.png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
-  <meta property="og:image:alt" content="Alquimiadev: diseño + código para marcas que venden online" />
+  <meta property="og:image:alt" content="Alquimiadev: diseño + código para negocios que crecen online" />
 
   <!-- Twitter / X -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Alquimiadev · Diseño + código para marcas que venden online" />
-  <meta name="twitter:description" content="Diseño, UX y desarrollo para tiendas online en Tiendanube y Empretienda." />
+  <meta name="twitter:title" content="Tiendas online, páginas web y mejoras | Alquimiadev" />
+  <meta name="twitter:description" content="Creo tiendas online en Tiendanube, páginas web profesionales y mejoras para sitios existentes." />
   <meta name="twitter:image" content="https://alquimiadev.com/og-image.png" />
 
-  <!-- Datos estructurados (Schema.org JSON-LD) -->
+  <!-- Schema.org JSON-LD -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -58,6 +63,19 @@
         "inLanguage": "es"
       },
       {
+        "@type": "Person",
+        "@id": "https://alquimiadev.com/#persona",
+        "name": "Alquimiadev",
+        "jobTitle": "Desarrolladora y Diseñadora Web",
+        "url": "https://alquimiadev.com/",
+        "worksFor": { "@id": "https://alquimiadev.com/#negocio" },
+        "sameAs": [
+          "https://instagram.com/alquimiadeve",
+          "https://tiktok.com/@alquimiadeve",
+          "https://linkedin.com/in/romina-gonzalez-38a196232"
+        ]
+      },
+      {
         "@type": "ProfessionalService",
         "@id": "https://alquimiadev.com/#negocio",
         "name": "Alquimiadev",
@@ -65,12 +83,14 @@
         "logo": "https://alquimiadev.com/logo.svg",
         "image": "https://alquimiadev.com/og-image.png",
         "slogan": "Diseño + código",
-        "description": "Diseño, UX y desarrollo para crear y profesionalizar tiendas online en Tiendanube y Empretienda.",
+        "description": "Creación de tiendas online en Tiendanube, páginas web y mejoras para sitios existentes.",
+        "founder": { "@id": "https://alquimiadev.com/#persona" },
         "areaServed": { "@type": "Place", "name": "Latinoamérica" },
-        "knowsAbout": ["Tiendanube", "Empretienda", "Diseño UX", "Desarrollo web", "E-commerce"],
+        "knowsAbout": ["Tiendanube", "Diseño UX", "Desarrollo web", "Landing pages", "SEO", "Performance web"],
         "sameAs": [
           "https://instagram.com/alquimiadeve",
-          "https://tiktok.com/@alquimiadeve"
+          "https://tiktok.com/@alquimiadeve",
+          "https://linkedin.com/in/romina-gonzalez-38a196232"
         ],
         "contactPoint": {
           "@type": "ContactPoint",
@@ -82,9 +102,35 @@
           "@type": "OfferCatalog",
           "name": "Servicios",
           "itemListElement": [
-            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Diseño + UX", "description": "Estructura, navegación, categorías y presentación de productos pensadas para el recorrido de compra." } },
-            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Configuración + desarrollo", "description": "Configuración de plataforma, catálogo, variantes, pagos y envíos, con personalización a medida." } },
-            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Lanzamiento + autonomía", "description": "Revisión previa a publicar y recursos para que la marca gestione su tienda por su cuenta." } }
+            {
+              "@type": "Offer",
+              "name": "Tienda Lista",
+              "price": "150000",
+              "priceCurrency": "ARS",
+              "itemOffered": { "@type": "Service", "name": "Tienda online en Tiendanube", "description": "Diseño y configuración de tienda online básica." }
+            },
+            {
+              "@type": "Offer",
+              "name": "Tienda Optimizada",
+              "price": "230000",
+              "priceCurrency": "ARS",
+              "itemOffered": { "@type": "Service", "name": "Tienda online personalizada", "description": "Tienda con mayor personalización visual y mejoras de experiencia." }
+            },
+            {
+              "@type": "Offer",
+              "name": "Tienda Estratégica",
+              "price": "350000",
+              "priceCurrency": "ARS",
+              "itemOffered": { "@type": "Service", "name": "Tienda online avanzada", "description": "Solución avanzada con personalizaciones y análisis de experiencia." }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": { "@type": "Service", "name": "Páginas web", "description": "Desarrollo de páginas web completas para presentar tu negocio." }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": { "@type": "Service", "name": "Mejoras para tu web", "description": "Optimización de performance, SEO, accesibilidad y usabilidad para webs existentes." }
+            }
           ]
         }
       }
@@ -92,22 +138,19 @@
   }
   </script>
 
-  <!-- Privacy-friendly analytics by Plausible -->
-<script async src="https://plausible.io/js/pa-9VZsGgUSkBNHx3K1E_bMy.js"></script>
-<script src="/analytics.js" defer></script>
+  <!-- Analytics -->
+  <script async src="https://plausible.io/js/pa-9VZsGgUSkBNHx3K1E_bMy.js"></script>
+  <script src="/analytics.js" defer></script>
 
   <!-- Fuentes -->
-
-<!-- Fuentes autoalojadas: precarga solo las que se ven en el primer pantallazo -->
-<link rel="preload" href="fonts/cormorant-garamond-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="fonts/cormorant-garamond-latin-700-italic.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="fonts/space-grotesk-latin-300-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/cormorant-garamond-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/cormorant-garamond-latin-700-italic.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/space-grotesk-latin-300-normal.woff2" as="font" type="font/woff2" crossorigin>
 
   <link rel="stylesheet" href="styles.css" />
   <link rel="stylesheet" href="accessibility.css" />
   <link rel="stylesheet" href="performance.css" />
 
-  <!-- JS con defer: no bloquea el render y se ejecuta en orden -->
   <script src="script.js" defer></script>
   <script src="a11y.js" defer></script>
 </head>
@@ -121,37 +164,29 @@
       <a href="#inicio" class="nav-logo" aria-label="Alquimiadev, ir al inicio">
         <span class="nav-logo-symbol" aria-hidden="true">◈</span>
         <span class="nav-logo-text">alquimia<em>deve</em></span>
-      
       </a>
 
       <nav class="nav-links" aria-label="Principal">
+        <a href="#tiendas" class="plausible-event-name=click_nav_tiendas">Tiendas online</a>
+        <a href="#paginas-web" class="plausible-event-name=click_nav_web">Páginas web</a>
+        <a href="#mejorar-web" class="plausible-event-name=click_nav_mejoras">Mejorar mi web</a>
         <a href="#sobre-mi">Sobre mí</a>
-        <a href="#servicios">Servicios</a>
-        <a href="#beneficios">Beneficios</a>
-        <a href="#planes">Planes</a>
-        <a href="#contacto" class="nav-cta">Hablemos <span aria-hidden="true">→</span></a>
+        <a href="#contacto" class="nav-cta plausible-event-name=click_nav_cta">Hablemos <span aria-hidden="true">→</span></a>
       </nav>
 
-      <!-- Botón de tema -->
-<button
-  type="button"
-  class="theme-toggle"
-  id="themeToggle"
-  aria-label="Cambiar tema"
-  aria-pressed="false"
->
-  <span class="theme-icon theme-icon-sun" aria-hidden="true">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="18" height="18">
-      <circle cx="12" cy="12" r="4"/>
-      <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/>
-    </svg>
-  </span>
-  <span class="theme-icon theme-icon-moon" aria-hidden="true">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="18" height="18">
-      <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
-    </svg>
-  </span>
-</button>
+      <button type="button" class="theme-toggle" id="themeToggle" aria-label="Cambiar tema" aria-pressed="false">
+        <span class="theme-icon theme-icon-sun" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="18" height="18">
+            <circle cx="12" cy="12" r="4"/>
+            <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/>
+          </svg>
+        </span>
+        <span class="theme-icon theme-icon-moon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="18" height="18">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+          </svg>
+        </span>
+      </button>
 
       <button type="button" class="nav-toggle" id="navToggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="navMobile">
         <span aria-hidden="true"></span><span aria-hidden="true"></span><span aria-hidden="true"></span>
@@ -160,11 +195,11 @@
   </header>
 
   <nav class="nav-mobile" id="navMobile" aria-label="Principal (móvil)">
+    <a href="#tiendas" class="plausible-event-name=click_nav_tiendas">Tiendas online</a>
+    <a href="#paginas-web" class="plausible-event-name=click_nav_web">Páginas web</a>
+    <a href="#mejorar-web" class="plausible-event-name=click_nav_mejoras">Mejorar mi web</a>
     <a href="#sobre-mi">Sobre mí</a>
-    <a href="#servicios">Servicios</a>
-    <a href="#beneficios">Beneficios</a>
-    <a href="#planes">Planes</a>
-    <a href="#contacto">Hablemos</a>
+    <a href="#contacto" class="plausible-event-name=click_nav_cta">Hablemos</a>
   </nav>
 
   <main id="contenido">
@@ -174,7 +209,6 @@
     <div class="hero-bg" aria-hidden="true">
       <div class="grid-bg"></div>
       <div class="particles" id="particles"></div>
-
       <svg class="alchemy-mark" viewBox="0 0 200 200" focusable="false">
         <circle cx="100" cy="100" r="80" fill="none" stroke="currentColor" stroke-width="1"/>
         <circle cx="100" cy="100" r="60" fill="none" stroke="currentColor" stroke-width="0.5" stroke-dasharray="3 4"/>
@@ -191,41 +225,508 @@
           disponible para nuevos proyectos
         </p>
 
-        <p class="kicker">diseño · ux · código</p>
+        <p class="kicker">diseño · código · estrategia</p>
 
         <h1 class="hero-title" id="hero-titulo">
           Diseño + código<br>
-          para marcas que<br>
-          <em>quieren vender online</em>
+          para negocios que<br>
+          <em>quieren crecer online</em>
         </h1>
 
         <p class="hero-sub">
-          Diseño, configuración y desarrollo para crear una tienda online
-          que represente tu marca y haga más simple la experiencia de compra.
-          Trabajo con marcas que ya venden y quieren
-          profesionalizar su canal digital.
+          Creo tiendas online y páginas web para que tu negocio se vea profesional,
+          sea fácil de entender y les resulte simple a tus clientes saber qué hacer después.
         </p>
 
         <div class="hero-ctas">
-          <a href="#planes" class="btn btn-primary">Ver planes <span aria-hidden="true">→</span></a>
-          <a href="#contacto" class="btn btn-secondary">Hablemos</a>
+          <a href="#tiendas" class="btn btn-primary plausible-event-name=click_hero_tiendas">Ver tiendas online <span aria-hidden="true">→</span></a>
+          <a href="#paginas-web" class="btn btn-secondary plausible-event-name=click_hero_web">Ver desarrollo web</a>
         </div>
 
       </div>
 
-      <!-- Panel decorativo: se oculta a lectores de pantalla -->
       <div class="hero-code" aria-hidden="true">
         <div class="code-panel">
           <div class="code-header">
             <span></span><span></span><span></span>
             <em>incantation.js</em>
           </div>
-          <pre class="code-body"><code><span class="c-key">function</span> <span class="c-fn">transformar</span>(marca) {
-  <span class="c-key">const</span> tienda = marca.<span class="c-fn">diseñar</span>();
-  <span class="c-key">return</span> tienda ? <span class="c-str">"✨ online"</span> : <span class="c-str">"🐛 bug"</span>;
+          <pre class="code-body"><code><span class="c-key">function</span> <span class="c-fn">transformar</span>(negocio) {
+  <span class="c-key">const</span> canal = negocio.<span class="c-fn">elegir</span>();
+  <span class="c-key">return</span> canal ? <span class="c-str">"✨ online"</span> : <span class="c-str">"🐛 bug"</span>;
 }</code></pre>
         </div>
       </div>
+
+    </div>
+  </section>
+
+
+  <!-- DECISIÓN: DOS CAMINOS -->
+  <section class="section decision" aria-labelledby="decision-titulo">
+    <div class="container">
+
+      <div class="section-header section-header--centered">
+        <p class="kicker kicker--centered">¿qué necesitás?</p>
+        <h2 class="section-title" id="decision-titulo">
+          Elegí por dónde empezar
+        </h2>
+        <p class="section-sub section-sub--centered">
+          No importa si todavía no sabés exactamente qué necesitás.
+          Podemos empezar por lo que hoy le hace falta a tu negocio.
+        </p>
+      </div>
+
+      <div class="decision-grid">
+
+        <a href="#tiendas" class="decision-card plausible-event-name=click_decision_tiendas">
+          <div class="decision-icon" aria-hidden="true">
+            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M 8 16 L 12 40 Q 12 44 16 44 L 32 44 Q 36 44 36 40 L 40 16"/>
+              <path d="M 6 12 L 42 12"/>
+              <path d="M 18 20 L 18 30 Q 18 34 22 34 L 26 34 Q 30 34 30 30 L 30 20"/>
+            </svg>
+          </div>
+          <span class="decision-tag">Tiendas online</span>
+          <h3>Quiero vender mis productos online</h3>
+          <p>
+            Creo tu tienda online para que puedas mostrar tus productos,
+            recibir pedidos y gestionar tus ventas por internet.
+          </p>
+          <span class="decision-cta">Ver planes <span aria-hidden="true">→</span></span>
+        </a>
+
+        <a href="#paginas-web" class="decision-card plausible-event-name=click_decision_web">
+          <div class="decision-icon" aria-hidden="true">
+            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="14,16 6,24 14,32"/>
+              <polyline points="34,16 42,24 34,32"/>
+              <line x1="28" y1="10" x2="20" y2="38"/>
+            </svg>
+          </div>
+          <span class="decision-tag">Páginas web</span>
+          <h3>Quiero presentar mi negocio online</h3>
+          <p>
+            Creo una página web completa para contar qué hacés, mostrar
+            tus servicios y facilitar que las personas interesadas puedan
+            encontrarte y contactarte.
+          </p>
+          <span class="decision-cta">Ver servicios <span aria-hidden="true">→</span></span>
+        </a>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ========================================================
+       SECCIÓN 1 — TIENDAS ONLINE
+       ======================================================== -->
+  <section class="section servicio-tiendas" id="tiendas" aria-labelledby="tiendas-titulo">
+    <div class="container">
+
+      <div class="section-header">
+        <p class="kicker">tiendas online</p>
+        <h2 class="section-title" id="tiendas-titulo">
+          Tu tienda online en <em>Tiendanube</em>
+        </h2>
+        <p class="section-sub">
+          Una tienda profesional, clara y preparada para acompañar la forma
+          en que tus clientes buscan, eligen y compran.
+        </p>
+      </div>
+
+      <div class="services-grid services-grid--spaced">
+
+        <article class="service-card">
+          <div class="service-icon" aria-hidden="true">
+            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="24" cy="24" r="18"/>
+              <polygon points="24,10 38,34 10,34"/>
+            </svg>
+          </div>
+          <h3>Una tienda fácil de recorrer</h3>
+          <p>
+            Organizamos tus productos, categorías y menú para que tus clientes
+            encuentren lo que buscan sin perderse.
+          </p>
+        </article>
+
+        <article class="service-card">
+          <div class="service-icon" aria-hidden="true">
+            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M 18 10 L 12 38 Q 12 44 18 44 L 30 44 Q 36 44 36 38 L 30 10"/>
+              <line x1="16" y1="10" x2="32" y2="10"/>
+              <line x1="15" y1="34" x2="33" y2="34"/>
+            </svg>
+          </div>
+          <h3>Todo listo para empezar a vender</h3>
+          <p>
+            Configuro productos, variantes, medios de pago, envíos y las funciones
+            que necesitás para poner tu tienda en marcha. Cuando el proyecto lo necesita,
+            también puedo incorporar cambios y funciones personalizadas.
+          </p>
+        </article>
+
+        <article class="service-card">
+          <div class="service-icon" aria-hidden="true">
+            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="10,24 20,34 38,14"/>
+              <circle cx="24" cy="24" r="20" opacity="0.3"/>
+            </svg>
+          </div>
+          <h3>Publicás con todo en orden</h3>
+          <p>
+            Antes de lanzar, revisamos que todo funcione correctamente.
+            Además, te dejo preparado lo necesario para que puedas gestionar
+            tu tienda por tu cuenta después del lanzamiento.
+          </p>
+        </article>
+
+      </div>
+
+      <div class="planes-header">
+        <p class="kicker kicker--centered">planes & precios</p>
+        <h3 class="planes-subtitle">Elegí la tienda que necesitás</h3>
+      </div>
+
+      <div class="planes-grid">
+
+        <!-- TIENDA LISTA -->
+        <article class="plan plan-base">
+          <span class="plan-badge">Tienda Lista</span>
+          <h3 class="plan-name">Para empezar</h3>
+          <p class="plan-tagline">
+            Para empezar con una tienda profesional, clara y bien organizada.
+          </p>
+
+          <div class="plan-price">
+            <span class="plan-amount">$150.000</span>
+            <span class="plan-currency">ARS · pago único</span>
+          </div>
+
+          <ul class="plan-features">
+            <li>Diseño y organización de la tienda</li>
+            <li>Configuración de productos</li>
+            <li>Medios de pago</li>
+            <li>Configuración de envíos</li>
+            <li>Adaptación para celulares</li>
+            <li>Puesta en marcha</li>
+          </ul>
+
+          <a href="https://wa.me/5491172546211?text=%C2%A1Hola!%20Quiero%20consultar%20por%20el%20plan%20Tienda%20Lista."
+             target="_blank"
+             rel="noopener"
+             class="btn btn-plan btn-plan-base plausible-event-name=click_plan_lista">
+            Ver plan <span aria-hidden="true">→</span>
+          </a>
+        </article>
+
+        <!-- TIENDA OPTIMIZADA -->
+        <article class="plan plan-full destacado">
+          <span class="plan-ribbon">Recomendado</span>
+          <span class="plan-badge">Tienda Optimizada</span>
+          <h3 class="plan-name">La más elegida</h3>
+          <p class="plan-tagline">
+            Para una tienda más personalizada y una experiencia de compra más clara.
+          </p>
+
+          <div class="plan-price">
+            <span class="plan-amount">$230.000</span>
+            <span class="plan-currency">ARS · pago único</span>
+          </div>
+
+          <ul class="plan-features">
+            <li>Todo lo de Tienda Lista</li>
+            <li>Mayor personalización visual</li>
+            <li>Mejoras en la experiencia de compra</li>
+            <li>Configuraciones adicionales según el negocio</li>
+          </ul>
+
+          <a href="https://wa.me/5491172546211?text=%C2%A1Hola!%20Quiero%20consultar%20por%20el%20plan%20Tienda%20Optimizada."
+             target="_blank"
+             rel="noopener"
+             class="btn btn-plan btn-plan-full plausible-event-name=click_plan_optimizada">
+            Ver plan <span aria-hidden="true">→</span>
+          </a>
+        </article>
+
+        <!-- TIENDA ESTRATÉGICA -->
+        <article class="plan plan-premium">
+          <span class="plan-badge">Tienda Estratégica</span>
+          <h3 class="plan-name">Para marcas</h3>
+          <p class="plan-tagline">
+            Para marcas que necesitan mayor personalización y quieren trabajar
+            su tienda en profundidad.
+          </p>
+
+          <div class="plan-price">
+            <span class="plan-amount">$350.000</span>
+            <span class="plan-currency">ARS · pago único</span>
+          </div>
+
+          <ul class="plan-features">
+            <li>Todo lo de Tienda Optimizada</li>
+            <li>Personalizaciones avanzadas</li>
+            <li>Análisis de la experiencia de compra</li>
+            <li>Soluciones adaptadas a las necesidades del negocio</li>
+          </ul>
+
+          <a href="https://wa.me/5491172546211?text=%C2%A1Hola!%20Quiero%20consultar%20por%20el%20plan%20Tienda%20Estrat%C3%A9gica."
+             target="_blank"
+             rel="noopener"
+             class="btn btn-plan btn-plan-premium plausible-event-name=click_plan_estrategica">
+            Ver plan <span aria-hidden="true">→</span>
+          </a>
+        </article>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ========================================================
+       SECCIÓN 2 — PÁGINAS WEB
+       ======================================================== -->
+  <section class="section servicio-desarrollo" id="paginas-web" aria-labelledby="paginas-titulo">
+    <div class="container">
+
+      <div class="section-header">
+        <p class="kicker">crear una página web</p>
+        <h2 class="section-title" id="paginas-titulo">
+          Una web completa, pensada <em>para tu negocio</em>
+        </h2>
+        <p class="section-sub">
+          No se trata solamente de que tu página se vea bien. Creo y preparo tu web
+          para que sea clara, rápida, fácil de usar y tenga una buena base para
+          aparecer en Google.
+        </p>
+      </div>
+
+      <div class="web-features-grid web-features-grid--spaced">
+
+        <article class="web-feature">
+          <div class="web-feature-icon" aria-hidden="true">
+            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="24" cy="24" r="16"/>
+              <polygon points="24,12 34,32 14,32"/>
+            </svg>
+          </div>
+          <h3>Diseño que representa tu negocio</h3>
+          <p>
+            Creo una página acorde a tu identidad, cuidando la estructura,
+            los textos y cada detalle para que tu negocio se vea profesional.
+          </p>
+        </article>
+
+        <article class="web-feature">
+          <div class="web-feature-icon" aria-hidden="true">
+            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="24" cy="24" r="16"/>
+              <circle cx="24" cy="24" r="4"/>
+            </svg>
+          </div>
+          <h3>Fácil de entender y usar</h3>
+          <p>
+            Organizo la información, los botones y la navegación para que tus
+            visitantes encuentren rápidamente lo que buscan y sepan cómo contactarte.
+          </p>
+        </article>
+
+        <article class="web-feature">
+          <div class="web-feature-icon" aria-hidden="true">
+            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="14" y="6" width="20" height="36" rx="3"/>
+              <line x1="22" y1="38" x2="26" y2="38"/>
+            </svg>
+          </div>
+          <h3>Adaptada a celulares</h3>
+          <p>
+            Tu página funciona correctamente en celulares, tablets y computadoras,
+            para que nadie tenga problemas al visitarla.
+          </p>
+        </article>
+
+        <article class="web-feature">
+          <div class="web-feature-icon" aria-hidden="true">
+            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="22" cy="22" r="14"/>
+              <line x1="32" y1="32" x2="42" y2="42"/>
+            </svg>
+          </div>
+          <h3>Preparada para Google</h3>
+          <p>
+            Trabajo la estructura, los títulos, las descripciones y otros elementos
+            que ayudan a Google a entender de qué trata tu página.
+          </p>
+        </article>
+
+        <article class="web-feature">
+          <div class="web-feature-icon" aria-hidden="true">
+            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M 24 8 L 34 14 L 34 26 Q 34 34 24 40 Q 14 34 14 26 L 14 14 Z"/>
+              <polyline points="20,24 23,27 29,21"/>
+            </svg>
+          </div>
+          <h3>Rápida y optimizada</h3>
+          <p>
+            Optimizo imágenes, archivos y otros elementos para reducir
+            los tiempos de carga y ofrecer una navegación más fluida.
+          </p>
+        </article>
+
+        <article class="web-feature">
+          <div class="web-feature-icon" aria-hidden="true">
+            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M 14 34 L 24 24 L 34 34"/>
+              <line x1="24" y1="24" x2="24" y2="42"/>
+              <path d="M 6 14 L 42 14"/>
+            </svg>
+          </div>
+          <h3>Lista para publicar</h3>
+          <p>
+            Configuro lo necesario para poner tu web online, conectar tu dominio
+            y revisar que todo funcione correctamente antes de publicarla.
+          </p>
+        </article>
+
+      </div>
+
+      <div class="section-cta-centered">
+        <a href="https://wa.me/5491172546211?text=%C2%A1Hola!%20Quiero%20crear%20mi%20p%C3%A1gina%20web."
+           target="_blank"
+           rel="noopener"
+           class="btn btn-primary plausible-event-name=click_crear_web">
+          Quiero crear mi página web <span aria-hidden="true">→</span>
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ========================================================
+       SECCIÓN 3 — MEJORAR MI WEB
+       ======================================================== -->
+  <section class="section servicio-mejoras" id="mejorar-web" aria-labelledby="mejorar-titulo">
+    <div class="container">
+
+      <div class="section-header">
+        <p class="kicker">mejorar mi web</p>
+        <h2 class="section-title" id="mejorar-titulo">
+          Tu web ya existe. <em>Hagamos que funcione mejor.</em>
+        </h2>
+        <p class="section-sub">
+          Si tu página fue creada por otra persona, hace tiempo que no la actualizás
+          o sentís que podría funcionar mejor, podemos analizarla y hacer los cambios necesarios.
+        </p>
+      </div>
+
+      <div class="web-features-grid web-features-grid--spaced">
+
+        <article class="web-feature">
+          <div class="web-feature-icon" aria-hidden="true">
+            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M 6 32 L 24 12 L 42 32"/>
+              <line x1="24" y1="12" x2="24" y2="40"/>
+            </svg>
+          </div>
+          <h3>Más rápida</h3>
+          <p>
+            Mejoro los elementos que pueden estar haciendo que tu página
+            tarde demasiado en cargar.
+          </p>
+        </article>
+
+        <article class="web-feature">
+          <div class="web-feature-icon" aria-hidden="true">
+            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="22" cy="22" r="14"/>
+              <line x1="32" y1="32" x2="42" y2="42"/>
+            </svg>
+          </div>
+          <h3>Más fácil de encontrar en Google</h3>
+          <p>
+            Reviso la estructura y el contenido para ayudar a los buscadores
+            a entender mejor tu página.
+          </p>
+        </article>
+
+        <article class="web-feature">
+          <div class="web-feature-icon" aria-hidden="true">
+            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="14" y="6" width="20" height="36" rx="3"/>
+              <line x1="22" y1="38" x2="26" y2="38"/>
+            </svg>
+          </div>
+          <h3>Mejor desde el celular</h3>
+          <p>
+            Detecto y corrijo problemas de visualización, navegación
+            o interacción en dispositivos móviles.
+          </p>
+        </article>
+
+        <article class="web-feature">
+          <div class="web-feature-icon" aria-hidden="true">
+            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="24" cy="24" r="16"/>
+              <path d="M 14 30 Q 24 22 34 30"/>
+            </svg>
+          </div>
+          <h3>Más fácil de usar</h3>
+          <p>
+            Reviso la organización, los textos y los botones para que tus
+            visitantes puedan encontrar lo que necesitan.
+          </p>
+        </article>
+
+        <article class="web-feature">
+          <div class="web-feature-icon" aria-hidden="true">
+            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M 24 8 v 8 M 24 32 v 8 M 8 24 h 8 M 32 24 h 8"/>
+              <circle cx="24" cy="24" r="8"/>
+            </svg>
+          </div>
+          <h3>Mejor conectada</h3>
+          <p>
+            Puedo integrar WhatsApp, formularios, redes sociales y otras
+            herramientas que faciliten el contacto.
+          </p>
+        </article>
+
+        <article class="web-feature">
+          <div class="web-feature-icon" aria-hidden="true">
+            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M 10 36 V 22"/>
+              <path d="M 20 36 V 14"/>
+              <path d="M 30 36 V 26"/>
+              <path d="M 40 36 V 18"/>
+              <line x1="6" y1="40" x2="42" y2="40"/>
+            </svg>
+          </div>
+          <h3>Con medición</h3>
+          <p>
+            Podemos incorporar herramientas para conocer cuántas personas
+            visitan tu web y qué hacen dentro de ella.
+          </p>
+        </article>
+
+      </div>
+
+      <div class="section-cta-centered section-cta-centered--spaced">
+        <a href="https://wa.me/5491172546211?text=%C2%A1Hola!%20Quiero%20mejorar%20mi%20web."
+           target="_blank"
+           rel="noopener"
+           class="btn btn-primary plausible-event-name=click_mejorar_web">
+          Quiero mejorar mi web <span aria-hidden="true">→</span>
+        </a>
+      </div>
+
+      <p class="web-service-nota">
+        No siempre necesitás empezar de cero. A veces, <strong>mejorar lo que ya tenés</strong> es suficiente.
+      </p>
 
     </div>
   </section>
@@ -247,354 +748,40 @@
 
         <div class="sobre-mi-text">
           <p>
-            Ayudo a pequeñas marcas de productos físicos a transformar
-            la forma en que venden online.
+            Ayudo a pequeños negocios y marcas a mejorar la forma en que
+            se presentan y venden por internet.
           </p>
           <p>
-            Combino <strong>diseño, UX y desarrollo</strong> para crear tiendas
-            que no solo se ven bien, sino que están pensadas para acompañar
-            cómo compra tu cliente.
+            Combino <strong>diseño, organización y desarrollo</strong> para crear webs
+            que no solo se ven bien, sino que también son fáciles de entender y usar.
           </p>
           <p>
-            Trabajo con Tiendanube y Empretienda, adaptando cada proyecto
-            a la identidad, los productos y las necesidades reales de cada marca.
+            Trabajo con tiendas online, páginas web y mejoras sobre sitios que ya existen,
+            adaptando cada proyecto a la identidad y las necesidades reales de cada negocio.
           </p>
           <p>
-            No se trata solamente de elegir una plantilla.
-            Se trata de construir una experiencia que tenga sentido
-            para tu negocio.
+            Mi objetivo no es solamente entregarte una web y desaparecer.
+            Quiero que entiendas qué tenés, cómo funciona y para qué sirve cada parte.
           </p>
-          <a href="#contacto" class="link-arrow">Conocer más <span aria-hidden="true">→</span></a>
+          <a href="#contacto" class="link-arrow plausible-event-name=click_sobre_mi">Conocer más <span aria-hidden="true">→</span></a>
         </div>
 
         <dl class="sobre-mi-stats">
           <div class="stat">
-            <dt class="stat-label">plataformas con las que trabajo</dt>
-            <dd class="stat-number">+2</dd>
+            <dt class="stat-label">servicios ofrecidos</dt>
+            <dd class="stat-number">3</dd>
           </div>
           <div class="stat">
             <dt class="stat-label">días hábiles por proyecto</dt>
             <dd class="stat-number">15-20</dd>
           </div>
           <div class="stat">
-            <dt class="stat-label">marcas con las que puedo trabajar</dt>
+            <dt class="stat-label">marcas y negocios con los que trabajo</dt>
             <dd class="stat-number">LATAM</dd>
           </div>
         </dl>
 
       </div>
-    </div>
-  </section>
-
-
-  <!-- SERVICIOS -->
-  <section class="section servicios" id="servicios" aria-labelledby="servicios-titulo">
-    <div class="container">
-
-      <div class="section-header">
-        <p class="kicker">lo que hago</p>
-        <h2 class="section-title" id="servicios-titulo">Servicios</h2>
-      </div>
-
-      <div class="services-grid">
-
-        <article class="service-card">
-          <div class="service-icon" aria-hidden="true">
-            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" focusable="false">
-              <circle cx="24" cy="24" r="18"/>
-              <polygon points="24,10 38,34 10,34"/>
-            </svg>
-          </div>
-          <h3>Diseño + UX</h3>
-          <p>
-            Diseñamos la tienda pensando en cómo navega y compra tu cliente.
-            Organizamos la estructura, navegación, categorías y presentación
-            de los productos para que encontrar lo que busca sea simple y claro.
-          </p>
-        </article>
-
-        <article class="service-card">
-          <div class="service-icon" aria-hidden="true">
-            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" focusable="false">
-              <path d="M 18 10 L 12 38 Q 12 44 18 44 L 30 44 Q 36 44 36 38 L 30 10"/>
-              <line x1="16" y1="10" x2="32" y2="10"/>
-              <line x1="15" y1="34" x2="33" y2="34"/>
-            </svg>
-          </div>
-          <h3>Configuración + desarrollo</h3>
-          <p>
-            Configuramos la plataforma, catálogo, variantes, medios de pago,
-            envíos y los elementos necesarios para poner tu tienda en funcionamiento.
-            Cuando el proyecto lo requiere, también incorporo soluciones de desarrollo
-            y personalización.
-          </p>
-        </article>
-
-        <article class="service-card">
-          <div class="service-icon" aria-hidden="true">
-            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" focusable="false">
-              <polyline points="10,24 20,34 38,14"/>
-              <circle cx="24" cy="24" r="20" opacity="0.3"/>
-            </svg>
-          </div>
-          <h3>Lanzamiento + autonomía</h3>
-          <p>
-            Antes de publicar, revisamos que todo funcione como debería.
-            Te entrego una tienda lista para empezar a trabajar y recursos
-            para que puedas gestionarla por tu cuenta después del lanzamiento.
-          </p>
-        </article>
-
-      </div>
-    </div>
-  </section>
-
-
-  <!-- BENEFICIOS -->
-  <section class="section proyectos" id="beneficios" aria-labelledby="beneficios-titulo">
-    <div class="container">
-
-      <div class="section-header">
-        <p class="kicker">el impacto real</p>
-        <h2 class="section-title" id="beneficios-titulo">
-          Una tienda no es solo una web linda.
-        </h2>
-        <p class="section-sub">
-          Es una herramienta para ordenar tu forma de vender y hacer más simple
-          el camino entre <strong>“quiero esto”</strong> y <strong>“quiero comprarlo”</strong>.
-        </p>
-      </div>
-
-      <div class="projects-grid">
-
-        <article class="project-card">
-          <div class="project-info">
-            <span class="project-tag">Menos tareas repetitivas</span>
-            <h3>Más orden, menos mensajes</h3>
-            <p>
-              Centralizá información que hoy quizás resolvés manualmente
-              por WhatsApp. Catálogo, precios, variantes, medios de pago
-              y opciones de envío pueden quedar organizados dentro de
-              un mismo espacio.
-            </p>
-          </div>
-        </article>
-
-        <article class="project-card">
-          <div class="project-info">
-            <span class="project-tag">Experiencia de usuario</span>
-            <h3>Una experiencia más clara</h3>
-            <p>
-              Una buena tienda no debería hacer que tu cliente piense demasiado.
-              La estructura, navegación y presentación de tus productos pueden
-              ayudarlo a encontrar lo que busca y entender cómo comprar.
-            </p>
-          </div>
-        </article>
-
-        <article class="project-card">
-          <div class="project-info">
-            <span class="project-tag">Identidad + confianza</span>
-            <h3>Una marca más profesional</h3>
-            <p>
-              Tu tienda también comunica quién sos. Una experiencia visual
-              coherente, información clara y un proceso de compra ordenado
-              ayudan a transmitir la identidad y el nivel de profesionalización
-              de tu marca.
-            </p>
-          </div>
-        </article>
-
-      </div>
-    </div>
-  </section>
-  <!-- PLANES -->
-  <section class="section planes" id="planes" aria-labelledby="planes-titulo">
-    <div class="container">
-
-      <div class="section-header">
-        <p class="kicker">elegí el plan para tu negocio</p>
-        <h2 class="section-title" id="planes-titulo">
-          Planes de <em>tienda online</em>
-        </h2>
-        <p class="section-sub">
-          Todos los planes incluyen una base profesional y adaptable a celulares.
-          Si no sabés cuál elegir, lo definimos juntas según la situación de tu negocio.
-        </p>
-      </div>
-
-      <div class="planes-grid">
-
-        <!-- BASE -->
-        <article class="plan plan-base">
-          <span class="plan-badge">Base</span>
-          <h3 class="plan-name">Tienda Lista</h3>
-          <p class="plan-tagline">
-            Para empezar con una tienda profesional y bien estructurada.
-          </p>
-
-          <div class="plan-price">
-            <span class="plan-amount">$150.000</span>
-            <span class="plan-currency">ARS · pago único</span>
-          </div>
-
-          <ul class="plan-features">
-            <li>Hasta 15 productos</li>
-            <li>Personalización de plantilla</li>
-            <li>Diseño responsive</li>
-            <li>Organización de categorías</li>
-            <li>Medios de pago y envío</li>
-            <li>WhatsApp y redes sociales</li>
-            <li>SEO básico</li>
-            <li>Títulos y descripciones SEO</li>
-            <li>2 banners principales</li>
-            <li>1 instancia de revisión</li>
-          </ul>
-
-          <a
-            href="https://wa.me/5491172546211?text=%C2%A1Hola!%20Quiero%20consultar%20por%20el%20plan%20BASE%20(Tienda%20Lista)."
-            target="_blank"
-            rel="noopener"
-            class="btn btn-plan btn-plan-base"
-          >
-            Consultar plan <span aria-hidden="true">→</span>
-          </a>
-        </article>
-
-        <!-- FULL (destacado) -->
-        <article class="plan plan-full destacado">
-          <span class="plan-ribbon">Más elegido</span>
-          <span class="plan-badge">Full</span>
-          <h3 class="plan-name">Tienda Optimizada</h3>
-          <p class="plan-tagline">
-            Para una tienda más personalizada y optimizada para facilitar la compra.
-          </p>
-
-          <div class="plan-price">
-            <span class="plan-amount">$230.000</span>
-            <span class="plan-currency">ARS · pago único</span>
-          </div>
-
-          <ul class="plan-features">
-            <li>Hasta 30 productos</li>
-            <li>Personalización de diseño</li>
-            <li>Diseño responsive</li>
-            <li>Organización de productos y categorías</li>
-            <li>Menú y navegación optimizados</li>
-            <li>Páginas de producto optimizadas</li>
-            <li>SEO avanzado</li>
-            <li>Categorías optimizadas para Google</li>
-            <li>Productos principales optimizados</li>
-            <li>2 banners + 4 de categoría</li>
-            <li>Hasta 3 páginas informativas</li>
-            <li>Promociones y cupones</li>
-            <li>Recuperación de carrito*</li>
-            <li>1 instancia de revisión</li>
-            <li>15 días de soporte</li>
-          </ul>
-
-          <a
-            href="https://wa.me/5491172546211?text=%C2%A1Hola!%20Quiero%20consultar%20por%20el%20plan%20FULL%20(Tienda%20Optimizada)."
-            target="_blank"
-            rel="noopener"
-            class="btn btn-plan btn-plan-full"
-          >
-            Consultar plan <span aria-hidden="true">→</span>
-          </a>
-        </article>
-
-        <!-- PREMIUM -->
-        <article class="plan plan-premium">
-          <span class="plan-badge">Premium</span>
-          <h3 class="plan-name">Tienda Estratégica</h3>
-          <p class="plan-tagline">
-            Para marcas que quieren trabajar la experiencia de compra en profundidad.
-          </p>
-
-          <div class="plan-price">
-            <span class="plan-amount">$350.000</span>
-            <span class="plan-currency">ARS · pago único</span>
-          </div>
-
-          <ul class="plan-features">
-            <li>Hasta 50 productos</li>
-            <li>Diseño personalizado avanzado</li>
-            <li>Diseño responsive</li>
-            <li>Estructura de navegación personalizada</li>
-            <li>Optimización del recorrido de compra</li>
-            <li>Auditoría de experiencia de usuario</li>
-            <li>SEO integral</li>
-            <li>Optimización de categorías y productos</li>
-            <li>Herramientas de medición</li>
-            <li>Integraciones necesarias*</li>
-            <li>3 banners + 8 de categoría</li>
-            <li>Hasta 5 páginas informativas</li>
-            <li>Promociones y cupones</li>
-            <li>Recuperación de carrito*</li>
-            <li>2 instancias de revisión</li>
-            <li>30 días de soporte</li>
-            <li>Recomendaciones de mejora</li>
-          </ul>
-
-          <a
-            href="https://wa.me/5491172546211?text=%C2%A1Hola!%20Quiero%20consultar%20por%20el%20plan%20PREMIUM%20(Tienda%20Estrat%C3%A9gica)."
-            target="_blank"
-            rel="noopener"
-            class="btn btn-plan btn-plan-premium"
-          >
-            Consultar plan <span aria-hidden="true">→</span>
-          </a>
-        </article>
-
-      </div>
-
-      <p class="planes-nota">
-        * Según las funciones disponibles en Tiendanube y las aplicaciones utilizadas.
-        Los costos de Tiendanube, dominio y aplicaciones externas se abonan por separado.
-      </p>
-
-    </div>
-  </section>
-
-  <!-- PROCESO -->
-  <section class="section proceso" id="proceso" aria-labelledby="proceso-titulo">
-    <div class="container">
-
-      <div class="section-header">
-        <p class="kicker">cómo trabajo</p>
-        <h2 class="section-title" id="proceso-titulo">El proceso</h2>
-      </div>
-
-      <ol class="proceso-grid">
-        <li class="step">
-          <span class="step-number" aria-hidden="true">01</span>
-          <h3>Diagnóstico</h3>
-          <p>Entendemos tu negocio, tus productos y cómo vendés actualmente.</p>
-        </li>
-        <li class="step">
-          <span class="step-number" aria-hidden="true">02</span>
-          <h3>Estructura</h3>
-          <p>Organizamos catálogo, categorías y recorrido de compra.</p>
-        </li>
-        <li class="step">
-          <span class="step-number" aria-hidden="true">03</span>
-          <h3>Diseño + configuración</h3>
-          <p>
-            Adaptamos tu identidad visual y configuramos la plataforma
-            según las necesidades de tu negocio.
-          </p>
-        </li>
-        <li class="step">
-          <span class="step-number" aria-hidden="true">04</span>
-          <h3>Lanzamiento</h3>
-          <p>
-            Revisamos, probamos y ponemos todo online.
-            Después del lanzamiento, te acompaño para que puedas
-            gestionar tu tienda con autonomía.
-          </p>
-        </li>
-      </ol>
-
     </div>
   </section>
 
@@ -610,30 +797,44 @@
         </svg>
       </div>
 
-      <p class="kicker">¿arrancamos?</p>
+      <p class="kicker kicker--centered">¿arrancamos?</p>
 
       <h2 class="cta-title" id="contacto-titulo">
-        ¿Lista para transformar<br>
-        tu forma de <em>vender</em>?
+        Contame qué necesitás<br>
+        y lo vemos <em>juntas</em>.
       </h2>
 
       <p class="cta-sub">
-        Contame qué vendés, cómo vendés hoy y qué te gustaría mejorar.
-        Vemos juntas qué necesita tu tienda y cómo podemos llevarlo
-        a una experiencia más clara, profesional y fácil de gestionar.
+        Puede ser una tienda online, una página para presentar tu negocio
+        o una mejora sobre la web que ya tenés. No necesitás saber de tecnología
+        ni tener todo definido antes de escribirme. Contame qué hacés, qué te gustaría
+        mejorar y qué estás buscando conseguir. A partir de ahí, vemos qué opción
+        tiene más sentido para tu negocio.
       </p>
 
-      <div class="hero-ctas">
-        <a
-          href="https://wa.me/5491172546211?text=%C2%A1Hola!%20Vengo%20de%20tu%20portfolio.%20Quiero%20m%C3%A1s%20informaci%C3%B3n%20para%20crear%20mi%20tienda%20online."
-          target="_blank" rel="noopener" class="btn btn-primary">
-          Escribime por WhatsApp <span aria-hidden="true">→</span>
+      <div class="hero-ctas hero-ctas--centered">
+        <a href="https://wa.me/5491172546211?text=%C2%A1Hola!%20Vengo%20de%20tu%20web.%20Quiero%20contarte%20sobre%20mi%20proyecto."
+           target="_blank"
+           rel="noopener"
+           class="btn btn-primary plausible-event-name=click_whatsapp">
+          Hablar por WhatsApp <span aria-hidden="true">→</span>
           <span class="sr-only">(se abre en una pestaña nueva)</span>
         </a>
 
-        <a href="https://instagram.com/alquimiadeve" target="_blank" rel="noopener" class="btn btn-secondary">
+        <a href="https://instagram.com/alquimiadeve"
+           target="_blank"
+           rel="noopener"
+           class="btn btn-secondary plausible-event-name=click_instagram">
           @alquimiadeve
           <span class="sr-only">en Instagram (se abre en una pestaña nueva)</span>
+        </a>
+
+        <a href="https://linkedin.com/in/romina-gonzalez-38a196232"
+           target="_blank"
+           rel="noopener"
+           class="btn btn-secondary plausible-event-name=click_linkedin">
+          LinkedIn
+          <span class="sr-only">(se abre en una pestaña nueva)</span>
         </a>
       </div>
 
@@ -652,16 +853,21 @@
         <span class="nav-logo-text">alquimia<em>deve</em></span>
       </div>
 
+      <p class="footer-tagline">
+        Tiendas online · Páginas web · Mejoras para tu web
+      </p>
+
       <nav class="footer-links" aria-label="Redes y contacto">
-        <a href="https://instagram.com/alquimiadeve" target="_blank" rel="noopener">
+        <a href="https://instagram.com/alquimiadeve" target="_blank" rel="noopener" class="plausible-event-name=click_instagram">
           Instagram<span class="sr-only"> (se abre en una pestaña nueva)</span>
         </a>
-        <a href="https://tiktok.com/@alquimiadeve" target="_blank" rel="noopener">
+        <a href="https://tiktok.com/@alquimiadeve" target="_blank" rel="noopener" class="plausible-event-name=click_tiktok">
           TikTok<span class="sr-only"> (se abre en una pestaña nueva)</span>
         </a>
-        <a
-          href="https://wa.me/5491172546211?text=%C2%A1Hola!%20Vengo%20de%20tu%20web.%20Quiero%20m%C3%A1s%20informaci%C3%B3n%20para%20crear%20mi%20tienda%20online."
-          target="_blank" rel="noopener">
+        <a href="https://linkedin.com/in/romina-gonzalez-38a196232" target="_blank" rel="noopener" class="plausible-event-name=click_linkedin">
+          LinkedIn<span class="sr-only"> (se abre en una pestaña nueva)</span>
+        </a>
+        <a href="https://wa.me/5491172546211?text=%C2%A1Hola!%20Vengo%20de%20tu%20web.%20Quiero%20contarte%20sobre%20mi%20proyecto." target="_blank" rel="noopener" class="plausible-event-name=click_whatsapp">
           WhatsApp<span class="sr-only"> (se abre en una pestaña nueva)</span>
         </a>
       </nav>

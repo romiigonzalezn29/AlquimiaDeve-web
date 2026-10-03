@@ -1,7 +1,32 @@
 /* ============================================================
    ALQUIMIADEV — Portfolio
+   Estructura:
+   01. Fuentes
+   02. Variables (temas)
+   03. Reset y base
+   04. Utilidades y helpers
+   05. Navegación
+   06. Botón de tema
+   07. Hero
+   08. Botones
+   09. Code panel
+   10. Secciones generales
+   11. Decisión (dos caminos)
+   12. Tiendas online
+   13. Planes
+   14. Páginas web (features + CTA)
+   15. Mejorar mi web
+   16. Sobre mí
+   17. CTA final
+   18. Footer
+   19. Accesibilidad (reduced motion)
+   20. Responsive
    ============================================================ */
 
+
+/* ============================================================
+   01. FUENTES
+   ============================================================ */
 @font-face {
   font-family: 'Cormorant Garamond';
   font-style: normal;
@@ -45,11 +70,15 @@
   src: url('fonts/jetbrains-mono-latin-400-normal.woff2') format('woff2');
 }
 
+
 /* ============================================================
-   TEMA OSCURO (por defecto)
+   02. VARIABLES — TEMAS
    ============================================================ */
+
+/* ---------- Tema oscuro (por defecto) ---------- */
 :root,
 [data-theme="dark"] {
+  /* Colores base */
   --violeta: #6a1b9a;
   --violeta-dark: #4a1268;
   --violeta-deep: #2a0a3d;
@@ -58,32 +87,35 @@
   --blanco: #FAFAFA;
   --negro: #1A1A1A;
 
+  /* Fondos */
   --bg-body: #2a0a3d;
-  --bg-section-alt: #4a1268;
   --bg-section-base: #2a0a3d;
+  --bg-section-alt: #4a1268;
   --bg-card: rgba(42, 10, 61, 0.5);
   --bg-nav: rgba(26, 10, 40, 0.75);
   --bg-nav-mobile: rgba(26, 10, 40, 0.98);
   --bg-code: rgba(26, 10, 40, 0.55);
 
+  /* Texto */
   --text-primary: #FAFAFA;
   --text-secondary: #E1BEE7;
   --text-muted: rgba(225, 190, 231, 0.7);
 
+  /* Bordes */
   --border-subtle: rgba(225, 190, 231, 0.15);
   --border-medium: rgba(225, 190, 231, 0.25);
   --border-accent: rgba(255, 193, 7, 0.4);
 
+  /* Sombras */
   --shadow-card: 0 20px 60px rgba(0, 0, 0, 0.4);
 
+  /* Tipografía */
   --font-serif: 'Cormorant Garamond', Georgia, serif;
   --font-sans: 'Space Grotesk', system-ui, sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
 }
 
-/* ============================================================
-   TEMA CLARO
-   ============================================================ */
+/* ---------- Tema claro ---------- */
 [data-theme="light"] {
   --violeta: #6a1b9a;
   --violeta-dark: #4a1268;
@@ -94,16 +126,15 @@
   --negro: #1A1A1A;
 
   --bg-body: #faf7fc;
-  --bg-section-alt: #f3ebf6;
   --bg-section-base: #faf7fc;
+  --bg-section-alt: #f3ebf6;
   --bg-card: rgba(255, 255, 255, 0.85);
-  --bg-nav: var(--violeta-dark);
+  --bg-nav: rgba(250, 247, 252, 0.9);
   --bg-nav-mobile: rgba(250, 247, 252, 0.98);
   --bg-code: #2a0a3d;
 
   --text-primary: #2a0a3d;
   --text-secondary: #4a1268;
-  --text-light: #ffffff;
   --text-muted: rgba(74, 18, 104, 0.7);
 
   --border-subtle: rgba(106, 27, 154, 0.15);
@@ -113,7 +144,15 @@
   --shadow-card: 0 20px 60px rgba(42, 10, 61, 0.12);
 }
 
-* { margin: 0; padding: 0; box-sizing: border-box; }
+
+/* ============================================================
+   03. RESET Y BASE
+   ============================================================ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
 html {
   scroll-behavior: smooth;
@@ -135,11 +174,18 @@ body {
   padding: 0 32px;
 }
 
-@media (max-width: 640px) {
-  .container { padding: 0 20px; }
+img,
+svg {
+  max-width: 100%;
+  display: block;
 }
 
-/* ---------- TIPOGRAFÍA ---------- */
+
+/* ============================================================
+   04. UTILIDADES Y HELPERS
+   ============================================================ */
+
+/* Tipografía base de secciones */
 .kicker {
   font-family: var(--font-mono);
   font-size: 14px;
@@ -148,6 +194,13 @@ body {
   color: var(--text-secondary);
   margin-bottom: 20px;
   opacity: 0.85;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.kicker--centered {
+  justify-content: center;
 }
 
 .section-title {
@@ -172,12 +225,64 @@ body {
   margin-top: 12px;
 }
 
-@media (max-width: 768px) {
-  .section-title { font-size: 40px; }
-  .kicker { font-size: 12px; }
+/* Centrado de encabezados */
+.section-header--centered {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-/* ---------- NAVEGACIÓN ---------- */
+.section-sub--centered {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+/* CTA centrado al final de una sección */
+.section-cta-centered {
+  text-align: center;
+}
+
+.section-cta-centered--spaced {
+  margin-bottom: 40px;
+}
+
+/* Subtítulo de planes (ex h3.section-title) */
+.planes-subtitle {
+  font-family: var(--font-serif);
+  font-weight: 700;
+  font-size: 48px;
+  line-height: 1.1;
+  letter-spacing: -0.5px;
+  color: var(--text-primary);
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+/* Header de planes (kicker + subtítulo) */
+.planes-header {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+/* Grids con espaciado interno */
+.services-grid--spaced {
+  margin-bottom: 80px;
+}
+
+.web-features-grid--spaced {
+  margin-bottom: 60px;
+}
+
+/* CTA centrado en hero-ctas */
+.hero-ctas--centered {
+  justify-content: center;
+}
+
+
+/* ============================================================
+   05. NAVEGACIÓN
+   ============================================================ */
 .nav {
   position: fixed;
   top: 0; left: 0; right: 0;
@@ -203,14 +308,17 @@ body {
   align-items: center;
   gap: 10px;
   text-decoration: none;
-  color: var(--text-light);
+  color: var(--text-primary);
   font-family: var(--font-sans);
   font-weight: 500;
   font-size: 18px;
   letter-spacing: 0.5px;
 }
 
-.nav-logo-symbol { color: var(--dorado); font-size: 22px; }
+.nav-logo-symbol {
+  color: var(--dorado);
+  font-size: 22px;
+}
 
 .nav-logo-text em {
   font-style: normal;
@@ -224,9 +332,9 @@ body {
   gap: 32px;
   align-items: center;
 }
- 
+
 .nav-links a {
-  color: var(--text-light);
+  color: var(--text-secondary);
   text-decoration: none;
   font-size: 15px;
   transition: color 0.2s;
@@ -264,7 +372,78 @@ body {
   transition: 0.3s;
 }
 
-/* ---------- BOTÓN DE TEMA ---------- */
+.nav-mobile {
+  display: none;
+  position: fixed;
+  top: 70px;
+  left: 0;
+  right: 0;
+  max-height: calc(100vh - 70px);
+  overflow-y: auto;
+  background: var(--bg-nav-mobile);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  padding: 24px;
+  flex-direction: column;
+  gap: 20px;
+  z-index: 99;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.nav-mobile.active { display: flex; }
+
+.nav-mobile a {
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-size: 18px;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+/* Estado del nav al hacer scroll */
+.nav--scrolled {
+  background: var(--bg-nav-scrolled, var(--bg-nav));
+  border-bottom-color: var(--border-accent);
+}
+
+/* Variables por tema */
+:root,
+[data-theme="dark"] {
+  --bg-nav-scrolled: rgba(26, 10, 40, 0.95);
+}
+
+[data-theme="light"] {
+  --bg-nav-scrolled: rgba(250, 247, 252, 0.98);
+}
+/* Ajustes de navbar en tema claro */
+[data-theme="light"] .nav-links a {
+  color: var(--violeta-deep);
+  font-weight: 500;
+}
+[data-theme="light"] .nav-links a:hover { color: var(--violeta); }
+[data-theme="light"] .nav-logo { color: var(--violeta-deep); }
+[data-theme="light"] .nav-logo-symbol { color: var(--violeta); }
+[data-theme="light"] .nav-logo-text em { color: #8a5a00; font-weight: 500; }
+[data-theme="light"] .nav-cta {
+  background: var(--violeta);
+  border-color: var(--violeta);
+  color: #ffffff !important;
+}
+[data-theme="light"] .nav-cta:hover {
+  background: var(--violeta-dark);
+  border-color: var(--violeta-dark);
+  color: #ffffff !important;
+}
+[data-theme="light"] .nav-mobile a {
+  color: var(--violeta-deep);
+  font-weight: 500;
+}
+[data-theme="light"] .nav-toggle span { background: var(--violeta-deep); }
+
+
+/* ============================================================
+   06. BOTÓN DE TEMA
+   ============================================================ */
 .theme-toggle {
   display: flex;
   align-items: center;
@@ -303,66 +482,26 @@ body {
   transition: opacity 0.3s ease, transform 0.4s ease;
 }
 
-.theme-icon-sun {
-  opacity: 1;
-  transform: rotate(0deg) scale(1);
-}
-.theme-icon-moon {
-  opacity: 0;
-  transform: rotate(-90deg) scale(0.6);
-}
+.theme-icon-sun { opacity: 1; transform: rotate(0deg) scale(1); }
+.theme-icon-moon { opacity: 0; transform: rotate(-90deg) scale(0.6); }
 
-[data-theme="light"] .theme-icon-sun {
-  opacity: 0;
-  transform: rotate(90deg) scale(0.6);
-}
-[data-theme="light"] .theme-icon-moon {
-  opacity: 1;
-  transform: rotate(0deg) scale(1);
-}
+[data-theme="light"] .theme-icon-sun { opacity: 0; transform: rotate(90deg) scale(0.6); }
+[data-theme="light"] .theme-icon-moon { opacity: 1; transform: rotate(0deg) scale(1); }
 
-/* ---------- NAVEGACIÓN MOBILE ---------- */
-.nav-mobile {
-  display: none;
-  position: fixed;
-  top: 70px;
-  left: 0;
-  right: 0;
-  max-height: calc(100vh - 70px);
-  overflow-y: auto;
-  background: var(--bg-nav-mobile);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  padding: 24px;
-  flex-direction: column;
-  gap: 20px;
-  z-index: 99;
-  border-bottom: 1px solid var(--border-subtle);
+[data-theme="light"] .theme-toggle {
+  border-color: rgba(106, 27, 154, 0.25);
+  background: rgba(106, 27, 154, 0.05);
 }
-
-.nav-mobile.active {
-  display: flex;
+[data-theme="light"] .theme-toggle:hover {
+  border-color: var(--violeta);
+  background: rgba(106, 27, 154, 0.1);
 }
+[data-theme="light"] .theme-icon { color: var(--violeta-deep); }
 
-.nav-mobile a {
-  color: var(--text-secondary);
-  text-decoration: none;
-  font-size: 18px;
-  padding: 8px 0;
-  border-bottom: 1px solid var(--border-subtle);
-}
 
-@media (max-width: 768px) {
-  .nav-links { display: none; }
-  .nav-toggle { display: flex; }
-  .theme-toggle {
-    width: 38px;
-    height: 38px;
-    margin-left: 8px;
-  }
-}
-
-/* ---------- HERO ---------- */
+/* ============================================================
+   07. HERO
+   ============================================================ */
 .hero {
   position: relative;
   min-height: 100vh;
@@ -382,7 +521,6 @@ body {
   z-index: 0;
 }
 
-/* Hero en tema claro */
 [data-theme="light"] .hero-bg {
   background:
     radial-gradient(circle at 30% 20%, rgba(106, 27, 154, 0.08), transparent 55%),
@@ -488,7 +626,8 @@ body {
 }
 
 .badge-dot {
-  width: 8px; height: 8px;
+  width: 8px;
+  height: 8px;
   border-radius: 50%;
   background: var(--dorado);
   box-shadow: 0 0 10px var(--dorado);
@@ -540,7 +679,10 @@ body {
   flex-wrap: wrap;
 }
 
-/* ---------- BOTONES ---------- */
+
+/* ============================================================
+   08. BOTONES
+   ============================================================ */
 .btn {
   display: inline-flex;
   align-items: center;
@@ -570,7 +712,6 @@ body {
   background: var(--violeta);
   color: #ffffff;
 }
-
 [data-theme="light"] .btn-primary:hover {
   box-shadow: 0 12px 30px rgba(106, 27, 154, 0.35);
 }
@@ -592,7 +733,6 @@ body {
   color: var(--violeta-deep);
   border-color: rgba(106, 27, 154, 0.25);
 }
-
 [data-theme="light"] .btn-secondary:hover {
   border-color: var(--violeta);
   color: var(--violeta);
@@ -603,12 +743,15 @@ body {
   text-decoration: none;
   font-weight: 500;
   font-family: var(--font-sans);
-  transition: gap 0.2s;
+  transition: opacity 0.2s;
 }
 
 .link-arrow:hover { opacity: 0.7; }
 
-/* ---------- CODE PANEL ---------- */
+
+/* ============================================================
+   09. CODE PANEL
+   ============================================================ */
 .hero-code {
   width: 100%;
   max-width: 100%;
@@ -627,7 +770,6 @@ body {
   max-width: 100%;
 }
 
-/* El panel de código siempre tiene fondo oscuro para dar contraste tipo "terminal" */
 [data-theme="light"] .code-panel {
   background: #2a0a3d;
   border-color: rgba(106, 27, 154, 0.3);
@@ -643,7 +785,8 @@ body {
 }
 
 .code-header span {
-  width: 12px; height: 12px;
+  width: 12px;
+  height: 12px;
   border-radius: 50%;
 }
 
@@ -672,12 +815,8 @@ body {
   max-width: 100%;
 }
 
-.code-body::-webkit-scrollbar {
-  height: 6px;
-}
-.code-body::-webkit-scrollbar-track {
-  background: rgba(255, 255, 255, 0.03);
-}
+.code-body::-webkit-scrollbar { height: 6px; }
+.code-body::-webkit-scrollbar-track { background: rgba(255, 255, 255, 0.03); }
 .code-body::-webkit-scrollbar-thumb {
   background: rgba(255, 193, 7, 0.3);
   border-radius: 3px;
@@ -687,7 +826,10 @@ body {
 .code-body .c-fn  { color: var(--dorado); }
 .code-body .c-str { color: #E1BEE7; }
 
-/* ---------- SECCIONES ---------- */
+
+/* ============================================================
+   10. SECCIONES GENERALES
+   ============================================================ */
 .section {
   position: relative;
   padding: 120px 0;
@@ -698,56 +840,114 @@ body {
   margin-bottom: 72px;
 }
 
-/* ---------- SOBRE MÍ ---------- */
-.sobre-mi { background: var(--bg-section-base); }
 
-.sobre-mi-grid {
+/* ============================================================
+   11. DECISIÓN — DOS CAMINOS
+   ============================================================ */
+.decision {
+  background: var(--bg-section-alt);
+  padding: 100px 0;
+}
+
+.decision-grid {
   display: grid;
-  grid-template-columns: 1.5fr 1fr;
-  gap: 80px;
-  align-items: start;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  margin-top: 40px;
 }
 
-.sobre-mi-text p {
-  font-size: 18px;
-  line-height: 1.7;
-  color: var(--text-secondary);
-  margin-bottom: 24px;
-}
-
-.sobre-mi-text strong {
-  color: var(--text-primary);
-  font-weight: 500;
-}
-
-.sobre-mi-stats {
+.decision-card {
   display: flex;
   flex-direction: column;
-  gap: 32px;
-  padding-left: 32px;
-  border-left: 1px solid var(--border-accent);
+  gap: 16px;
+  padding: 44px 36px;
+  background: var(--bg-card);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--border-subtle);
+  border-radius: 20px;
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
 }
 
-.stat { display: flex; flex-direction: column; gap: 4px; }
+.decision-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--dorado), transparent);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
 
-.stat-number {
-  font-family: var(--font-serif);
-  font-size: 48px;
-  font-weight: 700;
+.decision-card:hover {
+  border-color: var(--border-accent);
+  transform: translateY(-6px);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.3);
+}
+
+.decision-card:hover::before { opacity: 1; }
+
+[data-theme="light"] .decision-card {
+  background: #ffffff;
+  border-color: rgba(106, 27, 154, 0.15);
+}
+
+.decision-icon {
+  width: 64px;
+  height: 64px;
   color: var(--dorado);
-  line-height: 1;
+  margin-bottom: 8px;
 }
 
-.stat-label {
+.decision-icon svg { width: 100%; height: 100%; }
+
+.decision-tag {
   font-family: var(--font-mono);
-  font-size: 12px;
-  letter-spacing: 2px;
+  font-size: 11px;
+  letter-spacing: 2.5px;
   text-transform: uppercase;
-  color: var(--text-muted);
+  color: var(--dorado);
+  opacity: 0.8;
 }
 
-/* ---------- SERVICIOS ---------- */
-.servicios { background: var(--bg-section-alt); }
+.decision-card h3 {
+  font-family: var(--font-serif);
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.15;
+  margin: 0;
+}
+
+.decision-card p {
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  margin: 0;
+  flex-grow: 1;
+}
+
+.decision-cta {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 15px;
+  color: var(--dorado);
+  margin-top: 8px;
+  transition: letter-spacing 0.2s;
+}
+
+.decision-card:hover .decision-cta { letter-spacing: 0.5px; }
+
+
+/* ============================================================
+   12. TIENDAS ONLINE
+   ============================================================ */
+.servicio-tiendas {
+  background: var(--bg-section-base);
+}
 
 .services-grid {
   display: grid;
@@ -798,124 +998,10 @@ body {
   color: var(--text-secondary);
 }
 
-/* ---------- PROYECTOS ---------- */
-.proyectos { background: var(--bg-section-base); }
 
-.projects-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 32px;
-  margin-bottom: 60px;
-}
-
-.project-card {
-  background: var(--bg-card);
-  border: 1px solid var(--border-subtle);
-  border-radius: 20px;
-  overflow: hidden;
-  transition: all 0.3s ease;
-}
-
-.project-card:hover {
-  border-color: var(--border-accent);
-  transform: translateY(-4px);
-}
-
-[data-theme="light"] .project-card {
-  background: #ffffff;
-  border-color: rgba(106, 27, 154, 0.15);
-}
-
-.project-mockup {
-  aspect-ratio: 4/3;
-  background:
-    radial-gradient(circle at 30% 20%, rgba(225,190,231,0.15), transparent 55%),
-    linear-gradient(160deg, var(--violeta) 0%, var(--violeta-deep) 100%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-bottom: 1px solid var(--border-subtle);
-}
-
-.mockup-placeholder {
-  font-family: var(--font-serif);
-  font-size: 36px;
-  font-style: italic;
-  color: var(--dorado);
-  opacity: 0.5;
-}
-
-.project-info { padding: 24px; }
-
-.project-tag {
-  font-family: var(--font-mono);
-  font-size: 11px;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: var(--dorado);
-  opacity: 0.8;
-}
-
-.project-info h3 {
-  font-family: var(--font-serif);
-  font-size: 26px;
-  font-weight: 600;
-  color: var(--text-primary);
-  margin: 12px 0;
-}
-
-.project-info p {
-  font-size: 15px;
-  line-height: 1.6;
-  color: var(--text-secondary);
-  margin-bottom: 16px;
-}
-
-.projects-cta { text-align: center; }
-
-/* ---------- PROCESO ---------- */
-.proceso { background: var(--bg-section-alt); }
-
-.proceso-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 40px;
-}
-
-.step { position: relative; }
-
-.step-number {
-  font-family: var(--font-serif);
-  font-size: 72px;
-  font-weight: 700;
-  color: var(--dorado);
-  line-height: 1;
-  display: block;
-  margin-bottom: 16px;
-  opacity: 0.9;
-}
-
-.step h3 {
-  font-family: var(--font-serif);
-  font-size: 26px;
-  font-weight: 600;
-  color: var(--text-primary);
-  margin-bottom: 12px;
-}
-
-.step p {
-  font-size: 15px;
-  line-height: 1.6;
-  color: var(--text-secondary);
-}
-
-/* ---------- PLANES ---------- */
-.planes {
-  background: var(--bg-section-base);
-  position: relative;
-  overflow: hidden;
-}
-
+/* ============================================================
+   13. PLANES
+   ============================================================ */
 .planes-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -982,12 +1068,10 @@ body {
   background: rgba(225, 190, 231, 0.12);
   color: var(--text-secondary);
 }
-
 .plan-full .plan-badge {
   background: rgba(255, 193, 7, 0.18);
   color: var(--dorado);
 }
-
 .plan-premium .plan-badge {
   background: rgba(255, 193, 7, 0.15);
   color: var(--dorado);
@@ -1057,6 +1141,7 @@ body {
   list-style: none;
   margin-bottom: 32px;
   flex-grow: 1;
+  padding: 0;
 }
 
 .plan-features li {
@@ -1068,9 +1153,7 @@ body {
   border-bottom: 1px dashed var(--border-subtle);
 }
 
-.plan-features li:last-child {
-  border-bottom: none;
-}
+.plan-features li:last-child { border-bottom: none; }
 
 .plan-features li::before {
   content: '✓';
@@ -1104,7 +1187,6 @@ body {
   border-color: var(--border-medium);
   color: var(--text-primary);
 }
-
 .btn-plan-base:hover {
   border-color: var(--dorado);
   color: var(--dorado);
@@ -1115,12 +1197,10 @@ body {
   color: var(--negro);
   font-weight: 600;
 }
-
 .btn-plan-full:hover {
   transform: translateY(-2px);
   box-shadow: 0 12px 30px rgba(255, 193, 7, 0.35);
 }
-
 [data-theme="light"] .btn-plan-full {
   background: var(--violeta);
   color: #ffffff;
@@ -1131,7 +1211,6 @@ body {
   border-color: rgba(255, 193, 7, 0.5);
   color: var(--dorado);
 }
-
 .btn-plan-premium:hover {
   background: rgba(255, 193, 7, 0.12);
   border-color: var(--dorado);
@@ -1148,49 +1227,147 @@ body {
   line-height: 1.6;
 }
 
-@media (max-width: 1024px) {
-  .planes-grid {
-    grid-template-columns: 1fr;
-    gap: 24px;
-  }
-  .plan { padding: 36px 28px 28px; }
-  .plan-ribbon {
-    right: -36px;
-    font-size: 9px;
-    padding: 5px 44px;
-  }
+
+/* ============================================================
+   14. PÁGINAS WEB (features + CTA)
+   ============================================================ */
+.servicio-desarrollo {
+  background: var(--bg-section-alt);
 }
 
-@media (max-width: 640px) {
-  .planes-grid { gap: 20px; }
-  .plan {
-    padding: 32px 24px 24px;
-    border-radius: 16px;
-  }
-  .plan-name { font-size: 26px; }
-  .plan-amount { font-size: 34px; }
-  .plan-features li {
-    font-size: 13.5px;
-    padding: 7px 0 7px 20px;
-  }
-  .plan-features li::before {
-    top: 7px;
-    font-size: 13px;
-  }
-  .btn-plan {
-    padding: 13px 20px;
-    font-size: 14px;
-  }
-  .plan-ribbon {
-    top: 16px;
-    right: -34px;
-    font-size: 8.5px;
-    padding: 5px 42px;
-  }
-  .planes-nota { font-size: 12px; }
+.web-features-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
 }
 
-/* ---------- CTA FINAL ---------- */
+.web-feature {
+  padding: 32px 28px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 16px;
+  transition: all 0.3s ease;
+}
+
+[data-theme="light"] .web-feature {
+  background: #ffffff;
+  border-color: rgba(106, 27, 154, 0.15);
+}
+
+.web-feature:hover {
+  border-color: var(--border-accent);
+  transform: translateY(-4px);
+}
+
+.web-feature-icon {
+  width: 48px;
+  height: 48px;
+  color: var(--dorado);
+  margin-bottom: 20px;
+}
+
+.web-feature-icon svg { width: 100%; height: 100%; }
+
+.web-feature h3 {
+  font-family: var(--font-serif);
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 12px;
+  line-height: 1.2;
+}
+
+.web-feature p {
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+
+/* ============================================================
+   15. MEJORAR MI WEB
+   ============================================================ */
+.servicio-mejoras {
+  background: var(--bg-section-base);
+}
+
+.web-service-nota {
+  font-size: 15px;
+  color: var(--text-secondary);
+  text-align: center;
+  font-style: italic;
+  max-width: 700px;
+  margin: 40px auto 0;
+  line-height: 1.6;
+}
+
+.web-service-nota strong {
+  color: var(--dorado);
+  font-style: normal;
+}
+
+
+/* ============================================================
+   16. SOBRE MÍ
+   ============================================================ */
+.sobre-mi {
+  background: var(--bg-section-alt);
+}
+
+.sobre-mi-grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 80px;
+  align-items: start;
+}
+
+.sobre-mi-text p {
+  font-size: 18px;
+  line-height: 1.7;
+  color: var(--text-secondary);
+  margin-bottom: 24px;
+}
+
+.sobre-mi-text strong {
+  color: var(--text-primary);
+  font-weight: 500;
+}
+
+.sobre-mi-stats {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  padding-left: 32px;
+  border-left: 1px solid var(--border-accent);
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.stat-number {
+  font-family: var(--font-serif);
+  font-size: 48px;
+  font-weight: 700;
+  color: var(--dorado);
+  line-height: 1;
+}
+
+.stat-label {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+
+/* ============================================================
+   17. CTA FINAL
+   ============================================================ */
 .cta-final {
   background:
     radial-gradient(circle at 50% 50%, rgba(106,27,154,0.4), transparent 70%),
@@ -1253,12 +1430,10 @@ body {
   position: relative;
 }
 
-.cta-final .hero-ctas {
-  justify-content: center;
-  position: relative;
-}
 
-/* ---------- FOOTER ---------- */
+/* ============================================================
+   18. FOOTER
+   ============================================================ */
 .footer {
   background: var(--negro);
   padding: 60px 0 40px;
@@ -1290,6 +1465,17 @@ body {
 
 [data-theme="light"] .footer-brand { color: var(--violeta-deep); }
 
+.footer-tagline {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  text-align: center;
+  margin: 8px 0;
+  opacity: 0.7;
+}
+
 .footer-links {
   display: flex;
   gap: 32px;
@@ -1314,7 +1500,25 @@ body {
   margin-top: 16px;
 }
 
-/* ---------- RESPONSIVE GENERAL ---------- */
+
+/* ============================================================
+   19. ACCESIBILIDAD — REDUCED MOTION
+   ============================================================ */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+
+/* ============================================================
+   20. RESPONSIVE
+   ============================================================ */
 @media (max-width: 1024px) {
   .hero-inner {
     grid-template-columns: 1fr;
@@ -1322,9 +1526,12 @@ body {
   }
   .hero-title { font-size: 64px; }
   .hero-code { max-width: 100%; }
+
   .services-grid { grid-template-columns: 1fr; }
-  .projects-grid { grid-template-columns: 1fr; }
-  .proceso-grid { grid-template-columns: repeat(2, 1fr); }
+  .planes-grid { grid-template-columns: 1fr; gap: 24px; }
+  .web-features-grid { grid-template-columns: repeat(2, 1fr); }
+  .decision-grid { grid-template-columns: 1fr; }
+
   .sobre-mi-grid { grid-template-columns: 1fr; gap: 40px; }
   .sobre-mi-stats {
     padding-left: 0;
@@ -1332,17 +1539,76 @@ body {
     border-left: none;
     border-top: 1px solid var(--border-accent);
   }
+
+  .plan { padding: 36px 28px 28px; }
+  .plan-ribbon {
+    right: -36px;
+    font-size: 9px;
+    padding: 5px 44px;
+  }
+}
+
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+  .nav-toggle { display: flex; }
+  .theme-toggle {
+    width: 38px;
+    height: 38px;
+    margin-left: 8px;
+  }
+
+  .section-title { font-size: 40px; }
+  .kicker { font-size: 12px; }
+  .planes-subtitle { font-size: 36px; }
+  .cta-title { font-size: 48px; }
 }
 
 @media (max-width: 640px) {
+  .container { padding: 0 20px; }
+
   .hero { padding: 120px 0 60px; }
   .hero-title { font-size: 42px; line-height: 1.05; }
   .hero-sub { font-size: 16px; }
+
   .section { padding: 80px 0; }
   .section-title { font-size: 34px; }
   .cta-title { font-size: 36px; }
-  .proceso-grid { grid-template-columns: 1fr; }
+  .planes-subtitle { font-size: 28px; }
+
   .btn { padding: 14px 24px; font-size: 15px; }
+
+  .web-features-grid { grid-template-columns: 1fr; }
+  .web-feature { padding: 24px 20px; }
+  .web-feature h3 { font-size: 20px; }
+
+  .decision-card { padding: 32px 24px; }
+  .decision-card h3 { font-size: 26px; }
+
+  .plan {
+    padding: 32px 24px 24px;
+    border-radius: 16px;
+  }
+  .plan-name { font-size: 26px; }
+  .plan-amount { font-size: 34px; }
+  .plan-features li {
+    font-size: 13.5px;
+    padding: 7px 0 7px 20px;
+  }
+  .plan-features li::before {
+    top: 7px;
+    font-size: 13px;
+  }
+  .btn-plan {
+    padding: 13px 20px;
+    font-size: 14px;
+  }
+  .plan-ribbon {
+    top: 16px;
+    right: -34px;
+    font-size: 8.5px;
+    padding: 5px 42px;
+  }
+  .planes-nota { font-size: 12px; }
 
   .code-body {
     font-size: 12px;
@@ -1358,5 +1624,3 @@ body {
 
   .nav-inner { padding: 16px 20px; }
 }
-
-
