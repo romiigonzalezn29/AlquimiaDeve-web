@@ -26,6 +26,7 @@
     if (el.closest('#navMobile')) return 'nav-mobile';
     if (el.closest('header')) return 'nav';
     if (el.closest('footer')) return 'footer';
+    if (el.closest('.links-page')) return 'links';
     if (el.closest('#inicio')) return 'hero';
     if (el.closest('.decision')) return 'decision';
     if (el.closest('#tiendas')) return 'tiendas';
@@ -41,6 +42,7 @@
   // ------------------------------------------------------------
 const RULES = [
   // Planes (por texto del link "Ver plan")
+  ['a.link-primary', 'click_portfolio'],
   ['.plan-base a[href*="wa.me"]', 'click_plan_lista'],
   ['.plan-full a[href*="wa.me"]', 'click_plan_optimizada'],
   ['.plan-premium a[href*="wa.me"]', 'click_plan_estrategica'],

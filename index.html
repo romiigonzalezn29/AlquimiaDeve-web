@@ -9,26 +9,13 @@
   <meta name="description" content="Creo tiendas online en Tiendanube, páginas web profesionales y mejoras para sitios existentes. Diseño, desarrollo y estrategia para negocios de LATAM." />
   <meta name="author" content="Alquimiadev" />
   <meta name="robots" content="index, follow, max-image-preview:large" />
-  <link rel="canonical" href="https://alquimiadev.com/" />
+  <link rel="canonical" href="https://alquimia-deve-web.vercel.app/" />
 
   <!-- Theme color dinámico -->
   <meta name="theme-color" content="#2a0a3d" media="(prefers-color-scheme: dark)" />
   <meta name="theme-color" content="#faf7fc" media="(prefers-color-scheme: light)" />
 
-  <script>
-    // Aplicar tema ANTES de renderizar (evita flash)
-    (function () {
-      try {
-        var stored = localStorage.getItem('theme');
-        var prefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
-        var theme = stored || (prefersLight ? 'light' : 'dark');
-        document.documentElement.setAttribute('data-theme', theme);
-      } catch (e) {
-        document.documentElement.setAttribute('data-theme', 'dark');
-      }
-    })();
-  </script>
-
+ 
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="logo.svg" />
 
@@ -38,8 +25,8 @@
   <meta property="og:locale" content="es_AR" />
   <meta property="og:title" content="Tiendas online, páginas web y mejoras | Alquimiadev" />
   <meta property="og:description" content="Creo tiendas online en Tiendanube, páginas web profesionales y mejoras para sitios existentes." />
-  <meta property="og:url" content="https://alquimiadev.com/" />
-  <meta property="og:image" content="https://alquimiadev.com/og-image.png" />
+  <meta property="og:url" content="https://alquimia-deve-web.vercel.app/" />
+  <meta property="og:image" content="https://alquimia-deve-web.vercel.app/og-image.png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta property="og:image:alt" content="Alquimiadev: diseño + código para negocios que crecen online" />
@@ -48,7 +35,7 @@
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Tiendas online, páginas web y mejoras | Alquimiadev" />
   <meta name="twitter:description" content="Creo tiendas online en Tiendanube, páginas web profesionales y mejoras para sitios existentes." />
-  <meta name="twitter:image" content="https://alquimiadev.com/og-image.png" />
+  <meta name="twitter:image" content="https://alquimia-deve-web.vercel.app/og-image.png" />
 
   <!-- Schema.org JSON-LD -->
   <script type="application/ld+json">
@@ -57,18 +44,18 @@
     "@graph": [
       {
         "@type": "WebSite",
-        "@id": "https://alquimiadev.com/#website",
-        "url": "https://alquimiadev.com/",
+        "@id": "https://alquimia-deve-web.vercel.app/#website",
+        "url": "https://alquimia-deve-web.vercel.app/",
         "name": "Alquimiadev",
         "inLanguage": "es"
       },
       {
         "@type": "Person",
-        "@id": "https://alquimiadev.com/#persona",
+        "@id": "https://alquimia-deve-web.vercel.app/#persona",
         "name": "Alquimiadev",
         "jobTitle": "Desarrolladora y Diseñadora Web",
-        "url": "https://alquimiadev.com/",
-        "worksFor": { "@id": "https://alquimiadev.com/#negocio" },
+        "url": "https://alquimia-deve-web.vercel.app/",
+        "worksFor": { "@id": "https://alquimia-deve-web.vercel.app/#negocio" },
         "sameAs": [
           "https://instagram.com/alquimiadeve",
           "https://tiktok.com/@alquimiadeve",
@@ -77,14 +64,14 @@
       },
       {
         "@type": "ProfessionalService",
-        "@id": "https://alquimiadev.com/#negocio",
+        "@id": "https://alquimia-deve-web.vercel.app/#negocio",
         "name": "Alquimiadev",
-        "url": "https://alquimiadev.com/",
-        "logo": "https://alquimiadev.com/logo.svg",
-        "image": "https://alquimiadev.com/og-image.png",
+        "url": "https://alquimia-deve-web.vercel.app/",
+        "logo": "https://alquimia-deve-web.vercel.app/logo.svg",
+        "image": "https://alquimia-deve-web.vercel.app/og-image.png",
         "slogan": "Diseño + código",
         "description": "Creación de tiendas online en Tiendanube, páginas web y mejoras para sitios existentes.",
-        "founder": { "@id": "https://alquimiadev.com/#persona" },
+        "founder": { "@id": "https://alquimia-deve-web.vercel.app/#persona" },
         "areaServed": { "@type": "Place", "name": "Latinoamérica" },
         "knowsAbout": ["Tiendanube", "Diseño UX", "Desarrollo web", "Landing pages", "SEO", "Performance web"],
         "sameAs": [
@@ -139,12 +126,12 @@
   </script>
 
 
-<!-- Tema (sin defer, para que corra antes de renderizar) -->
+<!-- Tema  -->
 <script src="theme-init.js"></script>
 
 <!-- Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-09D3ZTJMD2"></script>
-<script src="gtag-init.js"></script>
+<script src="/gtag-init.js"></script>
 <script src="/analytics.js" defer></script>
 
   <!-- Fuentes -->
@@ -155,7 +142,6 @@
   <link rel="stylesheet" href="styles.css" />
   <link rel="stylesheet" href="accessibility.css" />
   <link rel="stylesheet" href="performance.css" />
-  <script src="analytics.js" defer></script>
   <script src="script.js" defer></script>
   <script src="a11y.js" defer></script>
 </head>

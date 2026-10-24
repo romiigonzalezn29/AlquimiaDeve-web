@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://alquimiadev.com/sitemap.xml
+Sitemap: https://alquimia-deve-web.vercel.app/sitemap.xml
