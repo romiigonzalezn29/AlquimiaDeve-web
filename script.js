@@ -15,7 +15,6 @@ const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)
 
   if (!navToggle || !navMobile) return;
 
-  // Abrir/cerrar al hacer clic en el botón
   navToggle.addEventListener('click', (e) => {
     e.stopPropagation();
     const isOpen = navMobile.classList.toggle('active');
@@ -23,7 +22,6 @@ const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)
     navToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
   });
 
-  // Cerrar al hacer clic en un link
   navMobile.querySelectorAll('a').forEach((link) => {
     link.addEventListener('click', () => {
       navMobile.classList.remove('active');
@@ -32,7 +30,6 @@ const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)
     });
   });
 
-  // Cerrar al hacer clic fuera
   document.addEventListener('click', (e) => {
     if (
       navMobile.classList.contains('active') &&
@@ -45,7 +42,6 @@ const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)
     }
   });
 
-  // Cerrar al hacer scroll
   window.addEventListener('scroll', () => {
     if (navMobile.classList.contains('active') && window.scrollY > 100) {
       navMobile.classList.remove('active');
@@ -89,8 +85,7 @@ const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)
 
 
 // ============================================================
-// 3. SCROLL REVEAL (con fallback si no hay IntersectionObserver
-//    o si el usuario prefiere reduced-motion)
+// 3. SCROLL REVEAL
 // ============================================================
 (function initScrollReveal() {
   const SELECTORS = [
@@ -106,7 +101,6 @@ const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)
   const elements = document.querySelectorAll(SELECTORS);
   if (!elements.length) return;
 
-  // Si no hay IO o el usuario prefiere reduced-motion, mostrar todo sin animación
   if (!('IntersectionObserver' in window) || prefersReducedMotion) {
     elements.forEach((el) => {
       el.style.opacity = '1';
@@ -138,7 +132,6 @@ const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)
     observer.observe(el);
   });
 
-  // Stagger (retraso escalonado)
   const staggerGroups = ['.service-card', '.plan', '.web-feature', '.decision-card'];
   staggerGroups.forEach((selector) => {
     document.querySelectorAll(selector).forEach((el, i) => {
@@ -149,7 +142,7 @@ const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)
 
 
 // ============================================================
-// 4. NAV — Cambio de clase al hacer scroll (no inline styles)
+// 4. NAV — Cambio de fondo al hacer scroll
 // ============================================================
 (function initNavScroll() {
   const nav = document.querySelector('.nav');
@@ -169,16 +162,37 @@ const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)
     }
   }, { passive: true });
 
-  // Estado inicial
   updateNav();
 })();
 
 
 // ============================================================
-// 5. SMOOTH SCROLL — eliminado
-//    El CSS ya maneja scroll-behavior: smooth y respeta
-//    prefers-reduced-motion automáticamente.
+// 5. SMOOTH SCROLL para links internos
 // ============================================================
+(function initSmoothScroll() {
+  const prefersReducedMotionNow = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (prefersReducedMotionNow) return;
+
+  document.querySelectorAll('a[href^="#"]').forEach((link) => {
+    link.addEventListener('click', (e) => {
+      const targetId = link.getAttribute('href');
+      if (targetId === '#' || targetId.length < 2) return;
+
+      const target = document.querySelector(targetId);
+      if (!target) return;
+
+      e.preventDefault();
+      const navHeight = 80;
+      const targetPosition =
+        target.getBoundingClientRect().top + window.scrollY - navHeight;
+
+      window.scrollTo({
+        top: targetPosition,
+        behavior: 'smooth',
+      });
+    });
+  });
+})();
 
 
 // ============================================================
@@ -207,7 +221,6 @@ const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)
     }
   });
 
-  // Preferencia del sistema (solo si el usuario no eligió manualmente)
   if (window.matchMedia) {
     const mq = window.matchMedia('(prefers-color-scheme: light)');
     const handler = (e) => {
@@ -220,7 +233,6 @@ const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)
       }
     };
 
-    // Fallback para Safari viejo
     if (typeof mq.addEventListener === 'function') {
       mq.addEventListener('change', handler);
     } else if (typeof mq.addListener === 'function') {
