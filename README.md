@@ -1,8 +1,8 @@
 # ◈ Alquimiadev — Web
 
-Sitio web oficial de **Alquimiadev**, un proyecto que combina **diseño UX/UI, desarrollo web y estrategia digital** para marcas de productos físicos que buscan profesionalizar su presencia online.
+Sitio web oficial de **Alquimiadev**, un proyecto que combina **diseño UX/UI, desarrollo web y estrategia digital** para negocios y marcas que buscan profesionalizar su presencia online.
 
-> **Diseño + código para marcas que quieren vender online.**
+> **Diseño + código para negocios que quieren crecer online.**
 
 🔗 **Demo:** https://alquimia-deve-web.vercel.app/
 
@@ -21,9 +21,9 @@ El sitio fue diseñado y desarrollado como una pieza de portfolio y como platafo
 - Accesibilidad.
 - SEO técnico.
 - Seguridad.
-- Analítica respetuosa con la privacidad.
+- Medición de interacciones con Google Analytics 4.
 
-El proyecto fue desarrollado **sin frameworks ni librerías externas**, utilizando tecnologías web nativas.
+El proyecto fue desarrollado **sin frameworks ni librerías de interfaz**, utilizando tecnologías web nativas.
 
 ---
 
@@ -35,7 +35,7 @@ El proyecto fue desarrollado **sin frameworks ni librerías externas**, utilizan
 - **SVG**
 - **Responsive Design**
 - **JSON-LD / Schema.org**
-- **Plausible Analytics**
+- **Google Analytics 4**
 - **Vercel**
 
 No requiere dependencias ni proceso de build.
@@ -66,7 +66,8 @@ Estos resultados corresponden a una medición de la versión desplegada en produ
 
 - Tipografías **autoalojadas en formato WOFF2**, evitando dependencias innecesarias de servicios externos.
 - `preload` aplicado a recursos críticos utilizados en el primer viewport.
-- Scripts cargados mediante `defer`.
+- Scripts cargados mediante `defer`, excepto el del tema, que se ejecuta antes del renderizado para evitar parpadeos.
+- Script de Google Analytics cargado de forma asíncrona.
 - CSS separado por responsabilidades.
 - Optimización de recursos para reducir el impacto sobre el renderizado inicial.
 - Configuración de caché para recursos estáticos.
@@ -78,6 +79,7 @@ Estos resultados corresponden a una medición de la versión desplegada en produ
 - `skip-link` para navegación por teclado.
 - Landmarks y atributos ARIA cuando son necesarios.
 - Menú responsive con `aria-expanded` y `aria-controls`.
+- Selector de tema claro y oscuro.
 - Elementos puramente decorativos ocultos a tecnologías asistivas.
 - Indicaciones para enlaces que abren nuevas pestañas.
 - Estilos y lógica específicos para mejoras de accesibilidad.
@@ -92,31 +94,32 @@ Estos resultados corresponden a una medición de la versión desplegada en produ
 - `sitemap.xml`.
 - Datos estructurados mediante **Schema.org / JSON-LD**.
 
-Se utilizan estructuras `WebSite` y `ProfessionalService` para aportar contexto semántico adicional a los buscadores.
+Se utilizan estructuras `WebSite`, `Person` y `ProfessionalService` para aportar contexto semántico adicional a los buscadores.
 
 ### Seguridad
 
-- **Content Security Policy (CSP)**.
+- **Content Security Policy (CSP)**, con permisos limitados a los dominios de Google necesarios para Analytics.
 - `X-Frame-Options`.
 - `X-Content-Type-Options`.
 - `Referrer-Policy`.
 - `Permissions-Policy`.
 - Configuración de cabeceras mediante `vercel.json`.
-- Sin scripts inline: la lógica se mantiene en archivos JavaScript separados.
+- Sin scripts inline ejecutables: la lógica se mantiene en archivos JavaScript separados.
 
 ### Analítica
 
-Se utiliza **Plausible Analytics** como solución de analítica orientada a la privacidad.
+Se utiliza **Google Analytics 4**, cargado mediante `gtag-init.js` y con eventos personalizados definidos en `analytics.js`.
 
-Se implementaron eventos personalizados para medir interacciones relevantes, entre ellos:
+Los eventos se detectan con reglas de selectores y se envían con un parámetro `zone` que indica la zona de la interfaz donde ocurrió la interacción (navegación, hero, planes, contacto, footer, etc.).
 
-- `click_whatsapp`
-- `click_portfolio`
-- `click_cta`
-- `click_instagram`
-- `click_tiktok`
+Eventos medidos:
 
-Los eventos incluyen propiedades que permiten identificar la zona de la interfaz desde la que se produjo la interacción.
+- **Contacto:** `click_whatsapp`, `click_plan_lista`, `click_plan_optimizada`, `click_plan_estrategica`.
+- **Redes:** `click_instagram`, `click_tiktok`, `click_linkedin`.
+- **Navegación y CTAs:** `click_nav_*` y `click_cta` (con el parámetro `target`).
+- **Engagement:** `scroll_depth` (25 %, 50 %, 75 % y 100 %) y `time_on_page` (15, 30, 60 y 120 segundos).
+
+Los parámetros `zone`, `target`, `depth` y `seconds` se registran como dimensiones personalizadas en GA4. Los eventos de contacto y de planes se marcan como eventos clave.
 
 ---
 
@@ -132,14 +135,14 @@ El resultado se documenta como una métrica específica de Lighthouse y no impli
 
 ## 🔗 Link in bio
 
-El proyecto incluye una página independiente en `/links`, diseñada como landing para utilizarse como enlace principal desde redes sociales.
+El proyecto incluye una página independiente, ubicada en la carpeta `links/`, diseñada como landing para utilizarse como enlace principal desde redes sociales.
 
 La página permite:
 
 - Centralizar accesos importantes.
 - Dirigir tráfico hacia el portfolio.
 - Facilitar el contacto por WhatsApp.
-- Medir interacciones.
+- Medir interacciones con Google Analytics 4.
 - Utilizar parámetros UTM para analizar campañas.
 
 ---
@@ -152,7 +155,7 @@ La identidad combina conceptos de **alquimia y tecnología**:
 - ◈ Código y lenguaje visual tecnológico.
 - Tipografía editorial.
 - Elementos geométricos.
-- Fondos oscuros.
+- Tema oscuro y tema claro, con selector.
 - Violeta y dorado como colores de acento.
 - Microinteracciones inspiradas en interfaces de desarrollo.
 
@@ -165,11 +168,12 @@ El objetivo es construir una identidad **mística, tecnológica y profesional**,
 El sitio se organiza en las siguientes secciones:
 
 1. **Hero** — propuesta de valor y llamados a la acción.
-2. **Sobre mí** — perfil profesional y enfoque de trabajo.
-3. **Servicios** — Diseño + UX, Configuración + desarrollo y Lanzamiento + autonomía.
-4. **Beneficios** — principales beneficios de profesionalizar el canal de venta.
-5. **Proceso** — Diagnóstico, Estructura, Diseño + configuración y Lanzamiento.
-6. **Contacto** — acceso a WhatsApp y redes sociales.
+2. **Elegí por dónde empezar** — acceso a los dos caminos principales: tienda online o página web.
+3. **Tiendas online** — servicios sobre Tiendanube y planes con precios (Tienda Lista, Tienda Optimizada y Tienda Estratégica).
+4. **Páginas web** — desarrollo de webs completas para presentar un negocio.
+5. **Mejorar mi web** — mejoras de performance, SEO, usabilidad y medición para sitios existentes.
+6. **Sobre mí** — perfil profesional y enfoque de trabajo.
+7. **Contacto** — acceso a WhatsApp y redes sociales.
 
 ---
 
@@ -182,9 +186,11 @@ AlquimiaDeve-web/
 ├── styles.css
 ├── accessibility.css
 ├── performance.css
+├── theme-init.js
+├── gtag-init.js
+├── analytics.js
 ├── script.js
 ├── a11y.js
-├── analytics.js
 │
 ├── fonts/
 │   └── *.woff2
@@ -199,3 +205,4 @@ AlquimiaDeve-web/
 ├── sitemap.xml
 ├── vercel.json
 └── README.md
+```
