@@ -1,29 +1,21 @@
 /* ============================================================
-   ALQUIMIADEV — Analytics (Plausible)
+   ALQUIMIADEV — Analytics (Google Analytics 4)
    ------------------------------------------------------------
+   Requiere que el snippet de gtag.js (con tu ID G-XXXXXXXXXX)
+   esté en el <head>, ANTES de cargar este archivo.
+
    Los eventos se trackean por JS con reglas de selectores.
-   Cada evento se envía con una propiedad "location" que indica
+   Cada evento se envía con un parámetro "zone" que indica
    la zona del DOM donde se hizo clic.
    ============================================================ */
 
 (function initAnalytics() {
   // ------------------------------------------------------------
-  // Stub + init de Plausible (siempre primero)
-  // ------------------------------------------------------------
-  window.plausible = window.plausible || function () {
-    (window.plausible.q = window.plausible.q || []).push(arguments);
-  };
-  window.plausible.init = window.plausible.init || function (i) {
-    window.plausible.o = i || {};
-  };
-  window.plausible.init();
-
-  // ------------------------------------------------------------
-  // Helper para enviar eventos
+  // Helper para enviar eventos a GA4
   // ------------------------------------------------------------
   function send(name, props) {
-    if (typeof window.plausible === 'function') {
-      window.plausible(name, { props: props });
+    if (typeof window.gtag === 'function') {
+      window.gtag('event', name, props || {});
     }
   }
 
@@ -47,30 +39,31 @@
   // ------------------------------------------------------------
   // Reglas de tracking: orden importa (más específicas primero)
   // ------------------------------------------------------------
-  const RULES = [
-    // Planes (por texto del link "Ver plan")
-    ['.plan-base a[href*="wa.me"]', 'click_plan_lista'],
-    ['.plan-full a[href*="wa.me"]', 'click_plan_optimizada'],
-    ['.plan-premium a[href*="wa.me"]', 'click_plan_estrategica'],
+const RULES = [
+  // Planes (por texto del link "Ver plan")
+  ['.plan-base a[href*="wa.me"]', 'click_plan_lista'],
+  ['.plan-full a[href*="wa.me"]', 'click_plan_optimizada'],
+  ['.plan-premium a[href*="wa.me"]', 'click_plan_estrategica'],
 
-    // WhatsApp
-    ['a[href*="wa.me"]', 'click_whatsapp'],
+  // WhatsApp
+  ['a[href*="wa.me"]', 'click_whatsapp'],
 
-    // Redes sociales
-    ['a[href*="instagram.com"]', 'click_instagram'],
-    ['a[href*="tiktok.com"]', 'click_tiktok'],
-    ['a[href*="linkedin.com"]', 'click_linkedin'],
+  // Redes sociales
+  ['a[href*="instagram.com"]', 'click_instagram'],
+  ['a[href*="tiktok.com"]', 'click_tiktok'],
+  ['a[href*="linkedin.com"]', 'click_linkedin'],
 
-    // Navegación interna
-    ['a[href="#tiendas"]', 'click_nav_tiendas'],
-    ['a[href="#paginas-web"]', 'click_nav_web'],
-    ['a[href="#mejorar-web"]', 'click_nav_mejoras'],
-    ['a[href="#sobre-mi"]', 'click_nav_sobre_mi'],
-    ['a[href="#contacto"]', 'click_nav_cta'],
+  // CTAs internos: botones, "Conocer más" y tarjetas de decisión
+  // (van ANTES que la navegación para ganar la coincidencia)
+  ['a.btn[href^="#"], a.link-arrow, a.decision-card', 'click_cta'],
 
-    // CTAs internos
-    ['a.btn[href^="#"], a.link-arrow', 'click_cta'],
-  ];
+  // Navegación interna (menú de arriba y menú móvil)
+  ['a[href="#tiendas"]', 'click_nav_tiendas'],
+  ['a[href="#paginas-web"]', 'click_nav_web'],
+  ['a[href="#mejorar-web"]', 'click_nav_mejoras'],
+  ['a[href="#sobre-mi"]', 'click_nav_sobre_mi'],
+  ['a[href="#contacto"]', 'click_nav_cta'],
+];
 
   // ------------------------------------------------------------
   // Listener global de clics
@@ -82,7 +75,7 @@
     const rule = RULES.find(([selector]) => link.matches(selector));
     if (!rule) return;
 
-    const props = { location: zoneOf(link) };
+    const props = { zone: zoneOf(link) };
     if (rule[1] === 'click_cta') props.target = link.getAttribute('href');
 
     send(rule[1], props);
